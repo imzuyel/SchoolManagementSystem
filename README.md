@@ -1,1 +1,1 @@
-#A School Management System Project
+# A School Management System Project
