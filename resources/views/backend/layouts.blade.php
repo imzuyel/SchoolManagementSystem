@@ -88,15 +88,16 @@
 
   <!-- JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
   <script src="{{ asset('assets/js/popper.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
   <!--plugins-->
   <script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-  <script src="{{ asset('assets/js/script.js') }}"></script>
-
 
 
   <!-- App JS -->
@@ -110,6 +111,7 @@
     //   }
     // }
   </script>
+  @stack('js')
 
 
   @include('backend.partials.toastr')
@@ -192,7 +194,7 @@
       }
     });
   </script>
-  @stack('js')
+
 </body>
 
 </html>

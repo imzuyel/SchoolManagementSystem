@@ -1,6 +1,6 @@
 @extends('backend.layouts')
 @section('title')
-  All User
+  All Years
 @endsection
 @push('css')
   <!-- DataTables -->
@@ -20,7 +20,7 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">User</li>
+            aria-current="page">Student Class</li>
         </ol>
       </nav>
     </div>
@@ -29,14 +29,14 @@
     <div class="card-header border-bottom-0 mb-4">
       <div class="d-flex align-items-center">
         <div>
-          <h5>Manage Users</h5>
+          <h5>Manage Year</h5>
         </div>
         <div class="ml-auto">
 
           <a class="btn btn-primary px-3"
-            href="{{ route('user.create') }}"
+            href="{{ route('setup.year.create') }}"
             data-toggle="tooltip"
-            title="Add new User &#9989"><i class="bx bx-plus mr-1"></i>Add</a>
+            title="Add new Year &#9989"><i class="bx bx-plus mr-1"></i>Add</a>
         </div>
       </div>
     </div>
@@ -44,56 +44,39 @@
       <div class="table-responsive">
         <table id="example"
           class="table table-striped table-bordered text-center table-hover">
-          @if (count($users) > 0)
+          @if (count($years) > 0)
             <thead>
               <tr>
                 <th>#</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Email</th>
+                <th>Year</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
           @endif
-
           <tbody>
-            @forelse ($users as $key=> $user)
+            @forelse ($years as $key=> $year)
               <tr>
                 <td>{{ $key + 1 }}</td>
-                <td class="text-center">
-                  <div class="product-img bg-transparent border">
-                    <img
-                      @if (file_exists($user->profile_photo_path)) src="/{{ $user->profile_photo_path }}"
-                @else
-                src="{{ asset('images/noimg.png') }}" @endif
-                      alt="{{ $user->name }}"
-                      width="45">
-                  </div>
-                </td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->user_type }}</td>
-                <td>{{ $user->email }}</td>
-                {{-- <td>
-                  @if ($category->status)
+                <td>{{ $year->name }}</td>
+                <td>
+                  @if ($year->status)
                     <span class="badge badge-info rounded "
                       data-toggle="tooltip"
-                      title="Category status is true &#128077">Active</span>
+                      title="Class status is true &#128077">Active</span>
                   @else
                     <span class="badge badge-danger"
                       data-toggle="tooltip"
-                      title="Category status is false &#128078">Inactive</span>
+                      title="Class status is false &#128078">Inactive</span>
                   @endif
-                </td> --}}
+                </td>
                 <td>
                   <a class="btn btn-sm btn-success"
-                    href="{{ route('user.edit', $user->id) }}"
+                    href="{{ route('setup.year.edit', $year->id) }}"
                     data-toggle="tooltip"
                     title="Edit &#128221"><i class="fadeIn animated bx bx-edit"></i>
                   </a>
-
-
-                  <form action="{{ route('user.destroy', $user->id) }}"
+                  <form action="{{ route('setup.year.destroy', $year->id) }}"
                     style="display: inline-block"
                     method="POST">
                     @csrf
@@ -122,6 +105,7 @@
 @push('js')
   <!--Data Tables js-->
   <!-- DataTables  & Plugins -->
+
   <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>

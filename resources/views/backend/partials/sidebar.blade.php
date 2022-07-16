@@ -25,7 +25,6 @@
       </a>
     </li>
     <li class="menu-label">Mentor Elements</li>
-
     <li class="{{ Request::is('user/*') ? 'mm-active' : '' }}">
       <a class="has-arrow"
         href="javascript:;">
@@ -55,14 +54,103 @@
     <li>
       <a class="has-arrow"
         href="javascript:;">
-        <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
         </div>
-        <div class="menu-title">Class</div>
+        <div class="menu-title">Setup Management</div>
       </a>
-      <ul>
-        <li> <a href="form-elements.html"><i class="bx bx-right-arrow-alt"></i>Manage Class</a>
-        <li> <a href="form-elements.html"><i class="bx bx-right-arrow-alt"></i>Add Class</a>
+      <ul class="{{ Request::is('setup/*') ? 'mm-show' : '' }}">
+
+        <li class="{{ Request::is('setup/class/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Class</div>
+          </a>
+          <ul class="{{ Request::is('setup/class/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/class/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.class.index') }}"><i class="bx bx-right-arrow-alt">
+                </i>Manage Class</a>
+            </li>
+            <li class="{{ Request::is('setup/class/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.class.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Class</a>
+            </li>
+          </ul>
         </li>
+
+        <li class="{{ Request::is('setup/year/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Year</div>
+          </a>
+          <ul class="{{ Request::is('setup/year/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/year/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.year.index') }}"><i class="bx bx-right-arrow-alt">
+                </i>Manage Year</a>
+            </li>
+            <li class="{{ Request::is('setup/year/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.year.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Year</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="{{ Request::is('setup/group/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Group</div>
+          </a>
+          <ul class="{{ Request::is('setup/group/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/group/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.group.index') }}"><i class="bx bx-right-arrow-alt">
+                </i>Manage group</a>
+            </li>
+            <li class="{{ Request::is('setup/group/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.group.create') }}"><i class="bx bx-right-arrow-alt"></i>Add group</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="{{ Request::is('setup/shift/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Shift</div>
+          </a>
+          <ul class="{{ Request::is('setup/shift/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/shift/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.shift.index') }}"><i class="bx bx-right-arrow-alt">
+                </i>Manage shift</a>
+            </li>
+            <li class="{{ Request::is('setup/shift/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.shift.create') }}"><i class="bx bx-right-arrow-alt"></i>Add shift</a>
+            </li>
+          </ul>
+        </li>
+        <li class="{{ Request::is('setup/feecategory/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Fee category</div>
+          </a>
+          <ul class="{{ Request::is('setup/feecategory/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/feecategory/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.feecategory.index') }}"><i class="bx bx-right-arrow-alt">
+                </i>Manage Fee-category</a>
+            </li>
+            <li class="{{ Request::is('setup/feecategory/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.feecategory.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Fee
+                Category</a>
+            </li>
+          </ul>
+        </li>
+
+
       </ul>
     </li>
   </ul>
