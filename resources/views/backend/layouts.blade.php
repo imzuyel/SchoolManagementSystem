@@ -111,6 +111,12 @@
     //   }
     // }
   </script>
+  {{-- Select 2 --}}
+  <link href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}"
+    rel="stylesheet" />
+  <link href="{{ asset('/assets/plugins/select2/css/select2-bootstrap4.css') }}"
+    rel="stylesheet" />
+  <script src="/assets/plugins/select2/js/select2.min.js"></script>
   @stack('js')
 
 

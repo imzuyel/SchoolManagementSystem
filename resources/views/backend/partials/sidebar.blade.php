@@ -35,10 +35,10 @@
       <ul class="{{ Request::is('user/*') ? 'mm-show' : '' }}">
         <li
           class="{{ Request::is('user') ? 'mm-active' : '' }} {{ Request::is('user/*/edit') ? 'mm-active' : '' }}">
-          <a href="{{ route('user.index') }}"><i class="bx bx-right-arrow-alt"></i>Manage User</a>
+          <a href="{{ route('user.index') }}"><i class="bx bx-right-arrow-alt"></i>Manage</a>
         </li>
         <li class="{{ Request::is('user/create/') ? 'mm-active' : '' }}"> <a href="{{ route('user.create') }}"><i
-              class="bx bx-right-arrow-alt"></i>Add User</a>
+              class="bx bx-plus"></i>Add</a>
         </li>
         @auth
 
@@ -69,11 +69,11 @@
           </a>
           <ul class="{{ Request::is('setup/class/*') ? 'mm-show' : '' }}">
             <li class="{{ Request::is('setup/class/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.class.index') }}"><i class="bx bx-right-arrow-alt">
-                </i>Manage Class</a>
+                href="{{ route('setup.class.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
             </li>
             <li class="{{ Request::is('setup/class/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.class.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Class</a>
+                href="{{ route('setup.class.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>
@@ -87,11 +87,11 @@
           </a>
           <ul class="{{ Request::is('setup/year/*') ? 'mm-show' : '' }}">
             <li class="{{ Request::is('setup/year/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.year.index') }}"><i class="bx bx-right-arrow-alt">
-                </i>Manage Year</a>
+                href="{{ route('setup.year.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
             </li>
             <li class="{{ Request::is('setup/year/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.year.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Year</a>
+                href="{{ route('setup.year.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>
@@ -105,11 +105,11 @@
           </a>
           <ul class="{{ Request::is('setup/group/*') ? 'mm-show' : '' }}">
             <li class="{{ Request::is('setup/group/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.group.index') }}"><i class="bx bx-right-arrow-alt">
-                </i>Manage group</a>
+                href="{{ route('setup.group.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
             </li>
             <li class="{{ Request::is('setup/group/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.group.create') }}"><i class="bx bx-right-arrow-alt"></i>Add group</a>
+                href="{{ route('setup.group.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>
@@ -123,11 +123,11 @@
           </a>
           <ul class="{{ Request::is('setup/shift/*') ? 'mm-show' : '' }}">
             <li class="{{ Request::is('setup/shift/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.shift.index') }}"><i class="bx bx-right-arrow-alt">
-                </i>Manage shift</a>
+                href="{{ route('setup.shift.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
             </li>
             <li class="{{ Request::is('setup/shift/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.shift.create') }}"><i class="bx bx-right-arrow-alt"></i>Add shift</a>
+                href="{{ route('setup.shift.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>
@@ -140,17 +140,33 @@
           </a>
           <ul class="{{ Request::is('setup/feecategory/*') ? 'mm-show' : '' }}">
             <li class="{{ Request::is('setup/feecategory/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.feecategory.index') }}"><i class="bx bx-right-arrow-alt">
-                </i>Manage Fee-category</a>
+                href="{{ route('setup.feecategory.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
             </li>
             <li class="{{ Request::is('setup/feecategory/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('setup.feecategory.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Fee
-                Category</a>
+                href="{{ route('setup.feecategory.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>
 
-
+        <li class="{{ Request::is('setup/feeamount/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Fee Amount</div>
+          </a>
+          <ul class="{{ Request::is('setup/feeamount/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('setup/feeamount/*/edit') ? 'mm-active' : '' }} {{ Request::is('setup/feeamount/*') ? 'mm-active' : '' }} {{ Request::is('setup/feeamount/create') ? '' : '' }} class-active">
+              <a href="{{ route('setup.feeamount.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('setup/feeamount/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.feeamount.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

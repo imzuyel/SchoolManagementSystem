@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\backend\FeecategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\YearController;
 use App\Http\Controllers\backend\GroupController;
 use App\Http\Controllers\backend\ShiftController;
+use App\Http\Controllers\backend\FeeamountController;
+use App\Http\Controllers\backend\FeecategoryController;
 use App\Http\Controllers\backend\StudentClassController;
 
 Route::get('/', function () {
@@ -32,4 +33,5 @@ Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
     Route::resource('/group', GroupController::class);
     Route::resource('/shift', ShiftController::class);
     Route::resource('/feecategory', FeecategoryController::class);
+    Route::resource('/feeamount', FeeamountController::class);
 });
