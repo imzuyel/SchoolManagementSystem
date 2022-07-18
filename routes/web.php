@@ -5,6 +5,8 @@ use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\YearController;
 use App\Http\Controllers\backend\GroupController;
 use App\Http\Controllers\backend\ShiftController;
+use App\Http\Controllers\backend\SubjectController;
+use App\Http\Controllers\backend\ExamtypeController;
 use App\Http\Controllers\backend\FeeamountController;
 use App\Http\Controllers\backend\FeecategoryController;
 use App\Http\Controllers\backend\StudentClassController;
@@ -34,4 +36,6 @@ Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
     Route::resource('/shift', ShiftController::class);
     Route::resource('/feecategory', FeecategoryController::class);
     Route::resource('/feeamount', FeeamountController::class);
+    Route::resource('/examtype', ExamtypeController::class);
+    Route::resource('/subject', SubjectController::class);
 });

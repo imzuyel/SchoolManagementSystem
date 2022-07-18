@@ -1,6 +1,6 @@
 @extends('backend.layouts')
 @section('title')
-  All Fee amount
+  All subjects
 @endsection
 @push('css')
   <!-- DataTables -->
@@ -20,7 +20,7 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">Fee amount</li>
+            aria-current="page">School subject</li>
         </ol>
       </nav>
     </div>
@@ -29,14 +29,13 @@
     <div class="card-header border-bottom-0 mb-4">
       <div class="d-flex align-items-center">
         <div>
-          <h5>Manage fee amount</h5>
+          <h5>Manage school subject</h5>
         </div>
         <div class="ml-auto">
-
           <a class="btn btn-primary px-3"
-            href="{{ route('setup.feeamount.create') }}"
+            href="{{ route('setup.subject.create') }}"
             data-toggle="tooltip"
-            title="Add new feeamount &#9989"><i class="bx bx-plus mr-1"></i>Add</a>
+            title="Add new subject &#9989"><i class="bx bx-plus mr-1"></i>Add</a>
         </div>
       </div>
     </div>
@@ -44,33 +43,50 @@
       <div class="table-responsive">
         <table id="example"
           class="table table-striped table-bordered text-center table-hover">
-          @if (count($feeamounts) > 0)
+          @if (count($subjects) > 0)
             <thead>
               <tr>
                 <th>#</th>
-                <th>Fee Category</th>
-
+                <th>Name</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
           @endif
           <tbody>
-            @forelse ($feeamounts as $key=> $feeamount)
+            @forelse ($subjects as $key=> $subject)
               <tr>
                 <td>{{ $key + 1 }}</td>
-                <td>{{ $feeamount->get_feecategory->name }}</td>
+                <td>{{ $subject->name }}</td>
+                <td>
+                  @if ($subject->status)
+                    <span class="badge badge-info rounded "
+                      data-toggle="tooltip"
+                      title="Class status is true &#128077">Active</span>
+                  @else
+                    <span class="badge badge-danger"
+                      data-toggle="tooltip"
+                      title="Class status is false &#128078">Inactive</span>
+                  @endif
+                </td>
                 <td>
                   <a class="btn btn-sm btn-success"
-                    href="{{ route('setup.feeamount.edit', $feeamount->get_feecategory->id) }}"
+                    href="{{ route('setup.subject.edit', $subject->id) }}"
                     data-toggle="tooltip"
                     title="Edit &#128221"><i class="fadeIn animated bx bx-edit"></i>
                   </a>
-                  <a class="btn btn-sm btn-linkedin"
-                    href="{{ route('setup.feeamount.show', $feeamount->get_feecategory->id) }}"
-                    data-toggle="tooltip"
-                    title="{{ $feeamount->get_feecategory->name }} details &#9989"><i
-                      class="fadeIn animated bx bx-show"></i>
-                  </a>
+                  <form action="{{ route('setup.subject.destroy', $subject->id) }}"
+                    style="display: inline-block"
+                    method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-danger delete-confirm"
+                      type="submit"
+                      data-toggle="tooltip"
+                      title="Delete &#128683">
+                      <i class="fadeIn animated bx bx-trash"></i>
+                    </button>
+                  </form>
                 </td>
               </tr>
             @empty

@@ -11,7 +11,7 @@ class GroupController extends Controller
 
     public function index()
     {
-        $data['groups'] = Group::all();
+        $data['groups'] = Group::latest()->get();
         return view('backend.setup.group.index', $data);
     }
 

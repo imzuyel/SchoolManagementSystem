@@ -11,7 +11,7 @@ class YearController extends Controller
 
     public function index()
     {
-        $data['years'] = Year::all();
+        $data['years'] = Year::latest()->get();
         return view('backend.setup.year.index', $data);
     }
 

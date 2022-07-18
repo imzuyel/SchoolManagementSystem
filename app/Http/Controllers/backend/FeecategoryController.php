@@ -11,7 +11,7 @@ class FeecategoryController extends Controller
 
     public function index()
     {
-        $data['feecategories'] = Feecategory::all();
+        $data['feecategories'] = Feecategory::latest()->get();
         return view('backend.setup.feecategory.index', $data);
     }
 

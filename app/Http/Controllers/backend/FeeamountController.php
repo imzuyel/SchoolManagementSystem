@@ -10,11 +10,7 @@ use App\Http\Controllers\Controller;
 
 class FeeamountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $data['feeamounts'] = Feeamount::select('fee_category_id')->groupBy('fee_category_id')->get();
@@ -34,20 +30,20 @@ class FeeamountController extends Controller
     {
         // return $request;
         $this->validate($request, [
-            'fee_category_id'      => 'required|string',
-            'class_id'      => 'required',
-            'amount'      => 'required',
-            'amount.*'      => 'required',
+            'fee_category_id'               => 'required|string',
+            'class_id'                      => 'required',
+            'amount'                        => 'required',
+            'amount.*'                      => 'required',
         ], [
-            'class_id.unique' => 'Class already selected',
+            'class_id.unique'               => 'Class already selected',
         ]);
         $countClass = count($request->class_id);
         if ($countClass != NULL) {
             for ($i = 0; $i < $countClass; $i++) {
-                $feeamount = new Feeamount();
+                $feeamount                  = new Feeamount();
                 $feeamount->fee_category_id = $request->fee_category_id;
-                $feeamount->class_id = $request->class_id[$i];
-                $feeamount->amount = $request->amount[$i];
+                $feeamount->class_id        = $request->class_id[$i];
+                $feeamount->amount          = $request->amount[$i];
                 $feeamount->save();
             }
         }
@@ -67,9 +63,9 @@ class FeeamountController extends Controller
     public function edit($id)
 
     {
-        $data['editData'] = Feeamount::where('fee_category_id', $id)->orderBy('class_id', 'asc')->get();
-        $data['feecategories'] = Feecategory::where('status', true)->get();
-        $data['classes'] = StudentClass::where('status', true)->get();
+        $data['editData']                   = Feeamount::where('fee_category_id', $id)->orderBy('class_id', 'asc')->get();
+        $data['feecategories']              = Feecategory::where('status', true)->get();
+        $data['classes']                    = StudentClass::where('status', true)->get();
         return view('backend.setup.feeamount.edit', $data);
     }
 
@@ -77,21 +73,21 @@ class FeeamountController extends Controller
     {
 
         $this->validate($request, [
-            'fee_category_id'      => 'required|string',
-            'class_id'      => 'required',
-            'amount'      => 'required',
-            'amount.*'      => 'required',
+            'fee_category_id'               => 'required|string',
+            'class_id'                      => 'required',
+            'amount'                        => 'required',
+            'amount.*'                      => 'required',
         ], [
-            'class_id.unique' => 'Class already selected',
+            'class_id.unique'               => 'Class already selected',
         ]);
         Feeamount::where("fee_category_id", $id)->delete();
         $countClass = count($request->class_id);
         if ($countClass != NULL) {
             for ($i = 0; $i < $countClass; $i++) {
-                $feeamount = new Feeamount();
+                $feeamount                  = new Feeamount();
                 $feeamount->fee_category_id = $request->fee_category_id;
-                $feeamount->class_id = $request->class_id[$i];
-                $feeamount->amount = $request->amount[$i];
+                $feeamount->class_id        = $request->class_id[$i];
+                $feeamount->amount          = $request->amount[$i];
                 $feeamount->save();
             }
         }

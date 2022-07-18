@@ -11,7 +11,7 @@ class StudentClassController extends Controller
 
     public function index()
     {
-        $data['classes'] = StudentClass::all();
+        $data['classes'] = StudentClass::latest()->get();
         return view('backend.setup.class.index', $data);
     }
 

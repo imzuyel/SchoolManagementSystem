@@ -167,6 +167,41 @@
             </li>
           </ul>
         </li>
+
+        <li class="{{ Request::is('setup/examtype/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Exam-type</div>
+          </a>
+          <ul class="{{ Request::is('setup/examtype/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/examtype/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.examtype.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('setup/examtype/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.examtype.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+        <li class="{{ Request::is('setup/subject/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">School subject</div>
+          </a>
+          <ul class="{{ Request::is('setup/subject/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('setup/subject/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.subject.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('setup/subject/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('setup.subject.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
