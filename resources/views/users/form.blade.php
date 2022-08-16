@@ -2,14 +2,7 @@
 @section('title')
   {{ isset($user->id) ? 'Update User' : 'Create User' }}
 @endsection
-@push('css')
-  <link href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}"
-    rel="stylesheet" />
-  <link href="{{ asset('/assets/plugins/select2/css/select2-bootstrap4.css') }}"
-    rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" />
-@endpush
+
 @section('content')
   <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
     <div class="breadcrumb-title pr-3">Dashboard</div>
@@ -57,6 +50,8 @@
                   {{ !isset($user) ? 'required' : '' }}>
                   <option value="admin"
                     @if (isset($user->user_type) && $user->user_type == 'admin') selected="selected" @endif>Admin</option>
+                  <option value="operator"
+                    @if (isset($user->user_type) && $user->user_type == 'operator') selected="selected" @endif>Operator</option>
                   <option value="user"
                     @if (isset($user->user_type) && $user->user_type == 'user') selected="selected" @endif>User</option>
                 </select>
@@ -92,7 +87,6 @@
                   </span>
                 @enderror
               </div>
-
               @if (!isset($user->password))
                 <div class="form-group">
                   <label class="col-form-label">Password</label>
@@ -100,8 +94,7 @@
                     class="form-control  @error('password') is-invalid @enderror"
                     name="password"
                     value="{{ $user->password ?? old('password') }}"
-                    placeholder="password"
-                    {{ !isset($user) ? 'required' : '' }}>
+                    placeholder="password">
                   @error('password')
                     <span class="text-danger"
                       role="alert">
@@ -110,7 +103,6 @@
                   @enderror
                 </div>
               @endif
-
             </div>
           </div>
         </div>
@@ -165,24 +157,6 @@
   </form>
 @endsection
 @push('js')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
-    integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
-    crossorigin="anonymous"></script>
-  <script src="/assets/plugins/select2/js/select2.min.js"></script>
-  <script>
-    $('.dropify').dropify({
-      messages: {
-        'default': 'Drag and drop a file here or click',
-        'replace': 'Drag and drop or click to replace',
-        'remove': 'Remove',
-        'error': 'Ooops, something wrong happended.'
-      }
-    });
-    $('.single-select').select2({
-      theme: 'bootstrap4',
-      width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-      placeholder: $(this).data('placeholder'),
-      allowClear: Boolean($(this).data('allow-clear')),
-    });
-  </script>
+  @include('backend.partials.select2')
+  @include('backend.partials.dropify')
 @endpush

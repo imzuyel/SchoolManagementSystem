@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $data['users'] = User::all();
+        $data['users'] = User::latest()->get();
         return view('users.index', $data);
     }
 
@@ -29,14 +30,21 @@ class UserController extends Controller
             'name'                  => 'required|string',
             'user_type'             => 'required|string',
             'email'                 => 'required|string|unique:users,email',
-            'password'              => 'required|string',
+            'password'              => 'nullable|string',
             'image'                 => 'nullable|image|mimes:jpg,png,jpeg,svg',
         ]);
         $user                       = new User();
         $user->name                 = $request->name;
         $user->user_type            = $request->user_type;
         $user->email                = $request->email;
-        $user->password             = bcrypt($request->password);
+        if ($request->password) {
+            $user->password         = $request->password;
+        } else {
+            $code                   = rand(00000, 99999);
+            $user->code             = $code;
+            $user->password         = bcrypt($code);
+        }
+
         $file                       = $request->hasFile('image');
         if ($file) {
             if (file_exists($user->profile_photo_path)) {
@@ -120,7 +128,7 @@ class UserController extends Controller
             if (file_exists($user->profile_photo_path)) {
                 unlink($user->profile_photo_path);
             }
-            $user->profile_photo_path = $this->uploadeImage($request);
+            $user->profile_photo_path   = $this->uploadeImage($request);
         }
         $user->save();
         toastr('User updated successfully', 'info');
@@ -130,13 +138,13 @@ class UserController extends Controller
     {
         $user = User::findOrFail(Auth::user()->id);
         $this->validate($request, [
-            'old_password'          => 'required',
-            'password'              => 'required|min:4|confirmed',
+            'old_password'              => 'required',
+            'password'                  => 'required|min:4|confirmed',
 
         ]);
-        $hashPassword = $user->password;
+        $hashPassword                   = $user->password;
         if (Hash::check($request->old_password, $hashPassword)) {
-            $user->password = Hash::make($request->password);
+            $user->password             = Hash::make($request->password);
             $user->save();
             Auth::logout();
             return redirect()->route('login');

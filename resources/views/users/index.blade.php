@@ -52,6 +52,8 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Email</th>
+                <th>Code</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -74,17 +76,18 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->user_type }}</td>
                 <td>{{ $user->email }}</td>
-                {{-- <td>
-                  @if ($category->status)
+                <td>{{ $user->code }}</td>
+                <td>
+                  @if ($user->status)
                     <span class="badge badge-info rounded "
                       data-toggle="tooltip"
-                      title="Category status is true &#128077">Active</span>
+                      title="User status is true &#128077">Active</span>
                   @else
                     <span class="badge badge-danger"
                       data-toggle="tooltip"
-                      title="Category status is false &#128078">Inactive</span>
+                      title="User status is false &#128078">Inactive</span>
                   @endif
-                </td> --}}
+                </td>
                 <td>
                   <a class="btn btn-sm btn-success"
                     href="{{ route('user.edit', $user->id) }}"

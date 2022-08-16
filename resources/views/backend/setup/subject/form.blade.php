@@ -1,6 +1,6 @@
 @extends('backend.layouts')
 @section('title')
-  {{ isset($shift->id) ? 'Update shift' : 'Create shift' }}
+  {{ isset($subject->id) ? 'Update subject' : 'Create subject' }}
 @endsection
 @section('content')
   <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
@@ -11,15 +11,15 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">{{ isset($shift->id) ? 'Update shift' : 'Create shift' }}</li>
+            aria-current="page">{{ isset($subject->id) ? 'Update subject' : 'Create subject' }}</li>
         </ol>
       </nav>
     </div>
   </div>
-  <form action="{{ isset($shift->id) ? route('setup.shift.update', $shift->id) : route('setup.shift.store') }}"
+  <form action="{{ isset($subject->id) ? route('setup.subject.update', $subject->id) : route('setup.subject.store') }}"
     method="post">
     @csrf
-    @isset($shift->id)
+    @isset($subject->id)
       @method('PUT')
     @endisset
     <div class="row">
@@ -28,14 +28,14 @@
           <div class="card-header border-bottom-0 mb-4">
             <div class="d-flex align-items-center">
               <div>
-                <h5 class="mb-lg-0">{{ isset($shift->id) ? 'Update shift' : 'Create shift' }}</h5>
+                <h5 class="mb-lg-0">{{ isset($subject->id) ? 'Update subject' : 'Create subject' }}</h5>
               </div>
               <div class="ml-auto">
 
                 <a class="btn btn-primary m-1"
-                  href="{{ route('setup.shift.index') }}"
+                  href="{{ route('setup.subject.index') }}"
                   data-toggle="tooltip"
-                  title="Back to all shifts &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Back to all subjects &#9194;"><i class="bx bx-rewind"></i>Back</a>
               </div>
             </div>
           </div>
@@ -46,9 +46,9 @@
                 <input type="text"
                   class="form-control  @error('name') is-invalid @enderror"
                   name="name"
-                  value="{{ $shift->name ?? old('name') }}"
+                  value="{{ $subject->name ?? old('name') }}"
                   placeholder="name"
-                  {{ !isset($shift) ? 'required' : '' }}>
+                  {{ !isset($subject) ? 'required' : '' }}>
                 @error('name')
                   <span class="text-danger"
                     role="alert">
@@ -61,13 +61,13 @@
                   class="custom-control-input"
                   id="status"
                   name="status"
-                  @isset($shift->id) {{ $shift->status == 1 ? 'checked' : '' }} @endisset>
+                  @isset($subject->id) {{ $subject->status == 1 ? 'checked' : '' }} @endisset>
                 <label class="custom-control-label"
                   for="status">Status</label>
               </div>
               <div class="float-right">
                 <div class="btn-group">
-                  @if (isset($shift->id))
+                  @if (isset($subject->id))
                     <button type="submit"
                       class="btn btn-primary px-2"
                       data-toggle="tooltip"

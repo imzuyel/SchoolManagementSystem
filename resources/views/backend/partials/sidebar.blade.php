@@ -7,10 +7,10 @@
         alt="" />
     </div>
     <div>
-      <h4 class="logo-text">Syndash</h4>
+      <h4 class="logo-text">{{ config('app.name') }}</h4>
     </div>
     <a href="javascript:;"
-      class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+      class="ml-auto toggle-btn"> <i class="bx bx-menu"></i>
     </a>
   </div>
   <!--navigation-->
@@ -33,16 +33,15 @@
         <div class="menu-title">User</div>
       </a>
       <ul class="{{ Request::is('user/*') ? 'mm-show' : '' }}">
-        <li
-          class="{{ Request::is('user') ? 'mm-active' : '' }} {{ Request::is('user/*/edit') ? 'mm-active' : '' }}">
+        <li class="{{ Request::is('user') ? 'mm-active' : '' }} {{ Request::is('user/*/edit') ? 'mm-active' : '' }}">
           <a href="{{ route('user.index') }}"><i class="bx bx-right-arrow-alt"></i>Manage</a>
         </li>
         <li class="{{ Request::is('user/create/') ? 'mm-active' : '' }}"> <a href="{{ route('user.create') }}"><i
               class="bx bx-plus"></i>Add</a>
         </li>
         @auth
-          <li class="{{ Request::is('user/profile/*') ? 'mm-active' : '' }}"> <a
-              href="{{ route('user.profie') }}"><i class="bx bx-right-arrow-alt"></i>Profile</a>
+          <li class="{{ Request::is('user/profile/*') ? 'mm-active' : '' }}"> <a href="{{ route('user.profie') }}"><i
+                class="bx bx-right-arrow-alt"></i>Profile</a>
           </li>
         @endauth
       </ul>
@@ -61,7 +60,7 @@
         <li class="{{ Request::is('setup/class/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Class</div>
           </a>
@@ -79,7 +78,7 @@
         <li class="{{ Request::is('setup/year/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Year</div>
           </a>
@@ -97,7 +96,7 @@
         <li class="{{ Request::is('setup/group/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class="icon-color-8"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Group</div>
           </a>
@@ -115,7 +114,7 @@
         <li class="{{ Request::is('setup/shift/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-3"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Shift</div>
           </a>
@@ -133,7 +132,7 @@
         <li class="{{ Request::is('setup/feecategory/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Fee category</div>
           </a>
@@ -151,7 +150,7 @@
         <li class="{{ Request::is('setup/feeamount/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Fee Amount</div>
           </a>
@@ -170,7 +169,7 @@
         <li class="{{ Request::is('setup/examtype/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Exam-type</div>
           </a>
@@ -187,7 +186,7 @@
         <li class="{{ Request::is('setup/subject/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">School subject</div>
           </a>
@@ -204,7 +203,7 @@
         <li class="{{ Request::is('setup/assignsubject/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Assign subject</div>
           </a>
@@ -223,7 +222,7 @@
         <li class="{{ Request::is('setup/designation/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
-            <div class="parent-icon icon-color-1"> <i class="bx bx-comment-edit"></i>
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Designation</div>
           </a>
@@ -236,6 +235,67 @@
                 href="{{ route('setup.designation.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
+        </li>
+
+      </ul>
+    </li>
+
+    <li class="menu-label">Setup</li>
+    <li>
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        </div>
+        <div class="menu-title">Student </div>
+      </a>
+      <ul class="{{ Request::is('student/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('student/assingstudent/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Register</div>
+          </a>
+          <ul class="{{ Request::is('student/assingstudent/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('student/assingstudent/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              <a href="{{ route('student.assingstudent.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('student/assingstudent/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('student.assingstudent.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="{{ Request::is('student/roll/generate') ? 'mm-active' : '' }}">
+          <a href="{{ route('student.rollgenerate') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Roll</div>
+          </a>
+        </li>
+        <li class="{{ Request::is('student/resgistration/fee') ? 'mm-active' : '' }}">
+          <a href="{{ route('student.regFee') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Register Fee</div>
+          </a>
+        </li>
+        <li class="{{ Request::is('student/monthly/fee') ? 'mm-active' : '' }}">
+          <a href="{{ route('student.monthlyFee') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Monthly Fee</div>
+          </a>
+        </li>
+
+        <li class="{{ Request::is('student/exam/fee') ? 'mm-active' : '' }}">
+          <a href="{{ route('student.examFee') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Exam Fee</div>
+          </a>
         </li>
 
       </ul>

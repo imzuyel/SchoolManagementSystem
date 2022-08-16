@@ -2,10 +2,6 @@
 @section('title')
   {{ isset($feeamount->id) ? 'Update Fee Amount Category' : 'Create Fee Amount Category' }}
 @endsection
-@push('css')
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" />
-@endpush
 @section('content')
   <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
     <div class="breadcrumb-title pr-3">Dashboard</div>
@@ -165,13 +161,8 @@
   </div>
 @endsection
 @push('js')
+  @include('backend.partials.select2')
   <script>
-    $('.single-select').select2({
-      theme: 'bootstrap4',
-      width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-      placeholder: $(this).data('placeholder'),
-      allowClear: Boolean($(this).data('allow-clear')),
-    });
     $(document).ready(function() {
       $(document).on('click', '.addeventmore', function() {
         var whole_extra_item_add = $('#whole_extra_item_add').html();

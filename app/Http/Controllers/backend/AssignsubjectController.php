@@ -6,6 +6,7 @@ use App\Models\Subject;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use App\Models\Assignsubject;
+use App\Models\Assingstudent;
 use App\Http\Controllers\Controller;
 
 class AssignsubjectController extends Controller
@@ -98,10 +99,5 @@ class AssignsubjectController extends Controller
         }
         toastr('Assign subject updated successfully', 'success');
         return redirect()->route('setup.assignsubject.index');
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

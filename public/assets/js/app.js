@@ -127,5 +127,14 @@ $(function () {
 		$('html').removeClass('dark-theme')
 		sessionStorage.removeItem('darktheme')
 	})
+
+
+
+	// // Add students to the
+	// $(".searchStudent").click(function () {
+	// 	console.log('dsfd');
+	// });
+
+
 })
 /* perfect scrol bar */

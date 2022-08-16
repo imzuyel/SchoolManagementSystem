@@ -37,7 +37,7 @@
             data-toggle="dropdown">
             <div class="media user-box align-items-center">
               <div class="media-body user-info">
-                <p class="user-name mb-0">Jessica Doe</p>
+                <p class="user-name mb-0">Zuyel Rana</p>
                 <p class="designattion mb-0">Available</p>
               </div>
               <img src="{{ asset('/') }}assets/images/avatars/avatar-1.png"
@@ -45,8 +45,11 @@
                 alt="user avatar">
             </div>
           </a>
-          <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item"
-              href="{{ route('user.profie') }}"><i class="bx bx-user"></i><span>Profile</span></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            @auth
+              <a class="dropdown-item"
+                href="{{ route('user.profie') }}"><i class="bx bx-user"></i><span>Profile</span></a>
+            @endauth
 
             <div class="dropdown-divider mb-0"></div>
             <a class="dropdown-item"
