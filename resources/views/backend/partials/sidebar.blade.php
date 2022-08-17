@@ -355,8 +355,6 @@
             </li>
           </ul>
         </li>
-
-
         <li class="{{ Request::is('employee/leave/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
@@ -366,12 +364,31 @@
           </a>
           <ul class="{{ Request::is('employee/leave/*') ? 'mm-show' : '' }}">
             <li
-              class="{{ Request::is('employee/leave/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              class="{{ Request::is('employee/leave/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }}">
               <a href="{{ route('employee.leave.index') }}"><i class="bx bx-add-to-queue">
                 </i>Manage</a>
             </li>
             <li class="{{ Request::is('employee/leave/create') ? 'mm-active' : '' }}"> <a
                 href="{{ route('employee.leave.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="{{ Request::is('employee/attendance/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Attendance</div>
+          </a>
+          <ul class="{{ Request::is('employee/attendance/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('employee/attendance/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} ">
+              <a href="{{ route('employee.attendance.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('employee/attendance/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('employee.attendance.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
           </ul>
         </li>

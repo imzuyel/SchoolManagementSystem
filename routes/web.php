@@ -18,6 +18,7 @@ use App\Http\Controllers\backend\LeavePruposeController;
 use App\Http\Controllers\backend\StudentClassController;
 use App\Http\Controllers\backend\AssignsubjectController;
 use App\Http\Controllers\backend\AssingstudentController;
+use App\Http\Controllers\backend\EmployeeattendanceController;
 use App\Http\Controllers\backend\EmployeeLeaveController;
 use App\Http\Controllers\backend\EmployeeSalaryController;
 use App\Http\Controllers\backend\RegistrationfeeController;
@@ -87,4 +88,5 @@ Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/salary', EmployeeSalaryController::class);
     Route::resource('/leavepurpose', LeavePruposeController::class);
     Route::resource('/leave', EmployeeLeaveController::class);
+    Route::resource('/attendance', EmployeeattendanceController::class);
 });

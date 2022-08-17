@@ -24,7 +24,6 @@
           <h5>Employee Attendance</h5>
         </div>
         <div class="ml-auto">
-
           <a class="px-3 btn btn-primary"
             href="{{ route('employee.attendance.create') }}"
             data-toggle="tooltip"
@@ -34,14 +33,18 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
+        <div>
+          <p>Date <code>{{ date('d M,Y', strtotime($employeeattendances[0]['date'])) }}</code> Attendance</p>
+        </div>
         <table id="example"
           class="table text-center table-striped table-bordered table-hover">
           @if (count($employeeattendances) > 0)
             <thead>
               <tr>
                 <th>#</th>
-                <th>Date</th>
-                <th>Action</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Attendance status</th>
               </tr>
             </thead>
           @endif
@@ -49,35 +52,19 @@
             @forelse ($employeeattendances as $key=> $attendance)
               <tr>
                 <td>{{ $key + 1 }}</td>
-                <td>{{ date('d M ,Y', strtotime($attendance->date)) }}</td>
-
+                <td>{{ $attendance->user->id_no }}</td>
+                <td>{{ $attendance->user->name }}</td>
 
                 <td>
-                  <a class="btn btn-sm btn-success"
-                    href="{{ route('employee.attendance.edit', $attendance->date) }}"
-                    data-toggle="tooltip"
-                    title="Edit &#128221"><i class="fadeIn animated bx bx-edit"></i>
-                  </a>
-
-                  <a class="btn btn-sm btn-facebook"
-                    href="{{ route('employee.attendance.show', $attendance->date) }}"
-                    data-toggle="tooltip"
-                    title="Details &#128221"><i class="fadeIn animated bx bx-award"></i>
-                  </a>
-                  <form action="#"
-                    style="display: inline-block"
-                    method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-sm btn-danger delete-confirm"
-                      type="submit"
-                      data-toggle="tooltip"
-                      title="Delete &#128683">
-                      <i class="fadeIn animated bx bx-trash"></i>
-                    </button>
-                  </form>
-
+                  @if ($attendance->attend_status === 'present')
+                    <span class="badge badge-success">{{ $attendance->attend_status }}</span>
+                  @elseif ($attendance->attend_status === 'leave')
+                    <span class="badge badge-info">{{ $attendance->attend_status }}</span>
+                  @else
+                    <span class="badge badge-danger">{{ $attendance->attend_status }}</span>
+                  @endif
                 </td>
+
               </tr>
             @empty
               <h4 class="text-danger ">No data found</h4>

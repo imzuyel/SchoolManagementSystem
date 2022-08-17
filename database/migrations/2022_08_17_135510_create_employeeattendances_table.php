@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('employeeattendances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('employee_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->date('date');
+            $table->string('attend_status');
             $table->timestamps();
         });
     }

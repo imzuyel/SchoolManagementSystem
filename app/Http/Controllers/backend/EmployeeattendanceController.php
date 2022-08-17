@@ -2,84 +2,83 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Employeeattendance;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Employeeattendance;
+use App\Http\Controllers\Controller;
 
 class EmployeeattendanceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $data['employeeattendances']          = Employeeattendance::select('date')->groupBy('date')->latest()->get();
+        return view('backend.employee.attendance.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $data['employees']                      = User::where('user_type', 'Employee')->latest()->get();
+        return view('backend.employee.attendance.form', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'date' => 'required',
+        ]);
+
+        $countemployee                          = count($request->employee_id);
+        for ($i = 0; $i < $countemployee; $i++) {
+            $attend_status                      = 'attend_status' . $i;
+            $attend                             = new Employeeattendance();
+            $attend->date                       = date('Y-m-d', strtotime($request->date));
+            $attend->employee_id                = $request->employee_id[$i];
+            $attend->attend_status              = $request->$attend_status;
+            $attend->save();
+        }
+        toastr('Attendance save successfully', 'success');
+        return to_route('employee.attendance.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Employeeattendance  $employeeattendance
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Employeeattendance $employeeattendance)
+
+    public function show($date)
     {
-        //
+        $data['employeeattendances']             =  Employeeattendance::where('date', date('Y-m-d', strtotime($date)))->get();
+        return view('backend.employee.attendance.details', $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Employeeattendance  $employeeattendance
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Employeeattendance $employeeattendance)
+
+    public function edit($date)
     {
-        //
+        $data['employeeattendance']             =  Employeeattendance::where('date', date('Y-m-d', strtotime($date)))->get();
+        return view('backend.employee.attendance.form', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employeeattendance  $employeeattendance
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Employeeattendance $employeeattendance)
+
+    public function update(Request $request, $date)
     {
-        //
+        $this->validate($request, [
+            'date' => 'required',
+        ]);
+        Employeeattendance::where('date', date('Y-m-d', strtotime($date)))->delete();
+        $countemployee                          = count($request->employee_id);
+        for ($i = 0; $i < $countemployee; $i++) {
+            $attend_status                      = 'attend_status' . $i;
+            $attend                             = new Employeeattendance();
+            $attend->date                       = date('Y-m-d', strtotime($request->date));
+            $attend->employee_id                = $request->employee_id[$i];
+            $attend->attend_status              = $request->$attend_status;
+            $attend->save();
+        }
+        toastr('Attendance updated successfully', 'success');
+        return to_route('employee.attendance.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Employeeattendance  $employeeattendance
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Employeeattendance $employeeattendance)
+
+    public function destroy($id)
     {
         //
     }
