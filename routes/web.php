@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\GroupController;
 use App\Http\Controllers\backend\ShiftController;
 use App\Http\Controllers\backend\ExamfeeController;
 use App\Http\Controllers\backend\SubjectController;
+use App\Http\Controllers\backend\EmployeeController;
 use App\Http\Controllers\backend\ExamtypeController;
 use App\Http\Controllers\backend\FeeamountController;
 use App\Http\Controllers\backend\MonthlyfeeController;
@@ -21,8 +22,6 @@ use App\Http\Controllers\backend\RegistrationfeeController;
 Route::get('/', function () {
     return view('backend.home');
 });
-
-
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -69,7 +68,6 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::post('/registration/fee', [RegistrationfeeController::class, 'regfeeget']);
     Route::get('/registration/fee/pdf/user-id/{user_id}/class-id/{class_id}', [RegistrationfeeController::class, 'regfeepdf'])->name('regfeepdf');
 
-
     // Registration Fee
     Route::get('/monthly/fee', [MonthlyfeeController::class, 'monthlyFee'])->name('monthlyFee');
     Route::post('/monthly/fee', [MonthlyfeeController::class, 'monthlyfeeget']);
@@ -79,4 +77,8 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::get('/exam/fee', [ExamfeeController::class, 'examFee'])->name('examFee');
     Route::post('/exam/fee', [ExamfeeController::class, 'examfeeget']);
     Route::get('/exam/fee/pdf/user-id/{user_id}/class-id/{class_id}/exam/{examtype}', [ExamfeeController::class, 'examfeepdf'])->name('examfeepdf');
+});
+
+Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
+    Route::resource('/register', EmployeeController::class);
 });

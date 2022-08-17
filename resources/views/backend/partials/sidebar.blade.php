@@ -240,7 +240,7 @@
       </ul>
     </li>
 
-    <li class="menu-label">Setup</li>
+    <li class="menu-label">Student</li>
     <li>
       <a class="has-arrow"
         href="javascript:;">
@@ -300,6 +300,39 @@
 
       </ul>
     </li>
+
+    <li class="menu-label">Employee</li>
+    <li>
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        </div>
+        <div class="menu-title">Employee </div>
+      </a>
+      <ul class="{{ Request::is('employee/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('employee/register/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Register</div>
+          </a>
+          <ul class="{{ Request::is('employee/register/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('employee/register/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              <a href="{{ route('employee.register.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('employee/register/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('employee.register.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+
   </ul>
   <!--end navigation-->
 </div>

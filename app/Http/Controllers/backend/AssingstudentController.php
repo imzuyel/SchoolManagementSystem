@@ -204,22 +204,6 @@ class AssingstudentController extends Controller
     }
 
 
-    // public function search(Request $request)
-    // {
-    //     $data['years']                      = Year::latest()->where('status', true)->get();
-    //     $data['classes']                    = StudentClass::latest()->where('status', true)->get();
-
-    //     $data['year_id']                    = $request->year_id;
-    //     $data['class_id']                   = $request->class_id;
-
-    //     $data['yearname']                   = Year::where('id', $request->year_id)->first();
-    //     $data['classname']                  = StudentClass::where('id', $request->class_id)->first();
-    //     $data['students']                   = Assingstudent::where(['year_id' => $request->year_id, 'class_id' => $request->class_id])->latest()->get();
-
-    //     return view('backend.student.register.index', $data);
-    // }
-
-
 
     public function search(Request $request)
     {

@@ -18,13 +18,6 @@
                 $(this).parent(".pip").remove();
               });
 
-              // Old code here
-              /*$("<img></img>", {
-                class: "imageThumb",
-                src: e.target.result,
-                title: file.name + " | Click to remove"
-              }).insertAfter("#files").click(function(){$(this).remove();});*/
-
             });
             fileReader.readAsDataURL(f);
           }
@@ -45,23 +38,19 @@
   </script>
 
 
-  {{-- Student --}}
+
   <script>
     $(document).ready(function() {
-
       $.ajaxSetup({
         headers: {
           "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
       });
 
-
       // Assing Student
       $(".searchStudent").click(function() {
         var year_id = $("#year_id").val();
         var class_id = $("#class_id").val();
-
-
         $.ajax({
           type: "post",
           url: "/student/assing/search",
@@ -82,7 +71,6 @@
               "responsive": true,
               "lengthChange": true,
               "autoWidth": false,
-              "buttons": ["pdf", "print"],
               "bDestroy": true,
             }).buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
 
@@ -213,7 +201,6 @@
           },
         });
       });
-
 
     });
   </script>
