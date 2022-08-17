@@ -202,5 +202,15 @@
         });
       });
 
+
+      $('#leave_purpose_id').on('change', function() {
+        var leave_purpose_id = $(this).val();
+        if (leave_purpose_id == 0) {
+          $('#new_purpose').show();
+        } else {
+          $('#new_purpose').hide();
+        }
+      });
+
     });
   </script>

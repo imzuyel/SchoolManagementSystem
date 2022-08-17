@@ -14,9 +14,11 @@ use App\Http\Controllers\backend\FeeamountController;
 use App\Http\Controllers\backend\MonthlyfeeController;
 use App\Http\Controllers\backend\DesignationController;
 use App\Http\Controllers\backend\FeecategoryController;
+use App\Http\Controllers\backend\LeavePruposeController;
 use App\Http\Controllers\backend\StudentClassController;
 use App\Http\Controllers\backend\AssignsubjectController;
 use App\Http\Controllers\backend\AssingstudentController;
+use App\Http\Controllers\backend\EmployeeLeaveController;
 use App\Http\Controllers\backend\EmployeeSalaryController;
 use App\Http\Controllers\backend\RegistrationfeeController;
 
@@ -83,4 +85,6 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
 Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/register', EmployeeController::class);
     Route::resource('/salary', EmployeeSalaryController::class);
+    Route::resource('/leavepurpose', LeavePruposeController::class);
+    Route::resource('/leave', EmployeeLeaveController::class);
 });

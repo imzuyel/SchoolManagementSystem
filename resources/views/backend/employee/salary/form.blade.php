@@ -32,7 +32,7 @@
                 <a class="m-1 btn btn-primary"
                   href="{{ route('employee.salary.index') }}"
                   data-toggle="tooltip"
-                  title="Back Employee salary &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Back Employee salary &#9194;"><i class="bx bx-rewind"></i></a>
               </div>
             </div>
           </div>

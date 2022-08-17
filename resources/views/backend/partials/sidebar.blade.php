@@ -240,7 +240,7 @@
       </ul>
     </li>
 
-    <li class="menu-label">Student</li>
+    <li class="menu-label">User</li>
     <li>
       <a class="has-arrow"
         href="javascript:;">
@@ -300,8 +300,6 @@
 
       </ul>
     </li>
-
-    <li class="menu-label">Employee</li>
     <li>
       <a class="has-arrow"
         href="javascript:;">
@@ -337,6 +335,47 @@
           </a>
 
         </li>
+
+
+        <li class="{{ Request::is('employee/leavepurpose/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Leave Purpose</div>
+          </a>
+          <ul class="{{ Request::is('employee/leavepurpose/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('employee/leavepurpose/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              <a href="{{ route('employee.leavepurpose.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('employee/leavepurpose/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('employee.leavepurpose.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="{{ Request::is('employee/leave/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Leave</div>
+          </a>
+          <ul class="{{ Request::is('employee/leave/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('employee/leave/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              <a href="{{ route('employee.leave.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('employee/leave/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('employee.leave.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
 
       </ul>
     </li>
