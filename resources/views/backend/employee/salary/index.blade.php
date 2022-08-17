@@ -1,6 +1,6 @@
 @extends('backend.layouts')
 @section('title')
-  All Employees
+  All Employees Salary
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">Employees</li>
+            aria-current="page">Employees Salary</li>
         </ol>
       </nav>
     </div>
@@ -23,7 +23,7 @@
       <div class="d-flex align-items-center">
         <div>
 
-          <h5>All Employees</h5>
+          <h5>All Employees Salary</h5>
         </div>
         <div class="ml-auto">
           <a class="px-3 btn btn-primary"
@@ -41,45 +41,18 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Action</th>_
                 <th>Name</th>
                 <th>Id</th>
                 <th>Mobile</th>
-                <th>Gender</th>
                 <th>Joing Date</th>
                 <th>Salary</th>
-                <th>Code</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($employees as $key => $employee)
                 <tr>
                   <td>{{ $key + 1 }}</td>
-                  <td>
-                    <a class="btn btn-sm btn-success"
-                      href="{{ route('employee.register.edit', $employee->id) }}"
-                      data-toggle="tooltip"
-                      title="Edit &#128221"><i class="fadeIn animated bx bx-edit"></i>
-                    </a>
-                    <a class="btn btn-sm btn-success"
-                      href="{{ route('employee.register.show', $employee->id) }}"
-                      data-toggle="tooltip"
-                      target="_blank"
-                      title="Details &#128190"><i class="fadeIn animated bx bxs-bullseye"></i>
-                    </a>
-                    <form action="{{ route('employee.register.destroy', $employee->id) }}"
-                      style="display: inline-block"
-                      method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button class="btn btn-sm btn-danger delete-confirm"
-                        type="submit"
-                        data-toggle="tooltip"
-                        title="Delete &#128683">
-                        <i class="fadeIn animated bx bx-trash"></i>
-                      </button>
-                    </form>
-                  </td>
                   <td>
                     <div class=" media align-items-center">
                       <img
@@ -99,10 +72,20 @@
                   </td>
                   <td>{{ $employee->id_no }}</td>
                   <td>{{ $employee->mobile }}</td>
-                  <td>{{ $employee->gender }}</td>
                   <td>{{ $employee->join_date }}</td>
                   <td>{{ $employee->salary }}</td>
-                  <td>{{ $employee->code }}</td>
+                  <td>
+                    <a class="btn btn-sm btn-success"
+                      href="{{ route('employee.salary.edit', $employee->id) }}"
+                      data-toggle="tooltip"
+                      title="Incriment &#128221"><i class="fadeIn animated bx bx-dollar"></i>
+                    </a>
+                    <a class="btn btn-sm btn-facebook"
+                      href="{{ route('employee.salary.show', $employee->id) }}"
+                      data-toggle="tooltip"
+                      title="Details &#128221"><i class="fadeIn animated bx bx-archive"></i>
+                    </a>
+                  </td>
 
                 </tr>
               @endforeach
@@ -120,5 +103,4 @@
 @push('js')
   @include('backend.partials.dataTable')
   @include('backend.partials.select2')
-  @include('backend.partials.dropify')
 @endpush

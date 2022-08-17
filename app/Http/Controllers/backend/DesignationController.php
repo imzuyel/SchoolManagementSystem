@@ -34,7 +34,7 @@ class DesignationController extends Controller
         ]);
 
         toastr('Designation added successfully', 'success');
-        return redirect()->route('setup.designation.index');
+        return to_route('setup.designation.index');
     }
 
 
@@ -55,13 +55,13 @@ class DesignationController extends Controller
         ]);
 
         toastr('Designation updated successfully', 'info');
-        return redirect()->route('setup.designation.index');
+        return to_route('setup.designation.index');
     }
 
     public function destroy(Designation $designation)
     {
         $designation->delete();
         toastr('Designation deleted successfully', 'success');
-        return redirect()->route('setup.designation.index');
+        return to_route('setup.designation.index');
     }
 }

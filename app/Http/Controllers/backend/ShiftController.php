@@ -33,7 +33,7 @@ class ShiftController extends Controller
         ]);
 
         toastr('Shift added successfully', 'success');
-        return redirect()->route('setup.shift.index');
+        return to_route('setup.shift.index');
     }
 
 
@@ -54,13 +54,13 @@ class ShiftController extends Controller
         ]);
 
         toastr('Shift updated successfully', 'info');
-        return redirect()->route('setup.shift.index');
+        return to_route('setup.shift.index');
     }
 
     public function destroy(Shift $shift)
     {
         $shift->delete();
         toastr('Shift deleted successfully', 'success');
-        return redirect()->route('setup.shift.index');
+        return to_route('setup.shift.index');
     }
 }

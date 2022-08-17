@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\Designation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\EmployeeSalary;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 
 class EmployeeController extends Controller
@@ -60,8 +61,8 @@ class EmployeeController extends Controller
         $employesalary                      = new EmployeeSalary();
         $employesalary->employee_id         = $user->id;
         $employesalary->effected_salary     = date('Y-m-d', strtotime($request->join_date));
-        $employesalary->previous_salary     = $request->present_salary;
-        $employesalary->present_salary      = $request->present_salary;
+        $employesalary->previous_salary     = $request->salary;
+        $employesalary->present_salary      = $request->salary;
         $employesalary->increment_salary    = '0';
         $employesalary->save();
 
@@ -79,7 +80,12 @@ class EmployeeController extends Controller
         return redirect()->route('employee.register.index');
     }
 
-
+    public function show($id)
+    {
+        $data['employee']           = User::findOrFail($id);
+        $pdf = Pdf::loadView('backend.employee.register.pdf', $data);
+        return $pdf->stream();
+    }
     public function edit($id)
     {
         $data['employee']           = User::findOrFail($id);
@@ -119,15 +125,6 @@ class EmployeeController extends Controller
         $user->designation_id               = $request->designation_id;
         $user->status                       =  $request->filled('status');
         $user->save();
-
-        $employesalary                      = EmployeeSalary::where('employee_id', $id)->first();
-        $employesalary->employee_id         = $user->id;
-        $employesalary->effected_salary     = date('Y-m-d', strtotime($request->join_date));
-        $employesalary->previous_salary     = $request->present_salary;
-        $employesalary->present_salary      = $request->present_salary;
-        $employesalary->increment_salary    = '0';
-        $employesalary->save();
-
         $file                               = $request->hasFile('image');
         if ($file) {
             if (file_exists($user->profile_photo_path)) {
@@ -139,7 +136,7 @@ class EmployeeController extends Controller
 
         toastr('Employee updated successfully', 'success');
 
-        return redirect()->back();
+        return to_route('employee.register.index');
     }
 
 

@@ -32,7 +32,7 @@ class FeecategoryController extends Controller
         ]);
 
         toastr('Fee Category added successfully', 'success');
-        return redirect()->route('setup.feecategory.index');
+        return to_route('setup.feecategory.index');
     }
 
     public function edit(Feecategory $feecategory)
@@ -52,7 +52,7 @@ class FeecategoryController extends Controller
         ]);
 
         toastr('Fee Category  updated successfully', 'info');
-        return redirect()->route('setup.feecategory.index');
+        return to_route('setup.feecategory.index');
     }
 
 
@@ -60,6 +60,6 @@ class FeecategoryController extends Controller
     {
         $feecategory->delete();
         toastr('Fee Category deleted successfully', 'success');
-        return redirect()->route('setup.feecategory.index');
+        return to_route('setup.feecategory.index');
     }
 }

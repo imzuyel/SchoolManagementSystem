@@ -53,7 +53,7 @@ class AssignsubjectController extends Controller
         }
 
         toastr('Assign subject added successfully', 'success');
-        return redirect()->route('setup.assignsubject.index');
+        return to_route('setup.assignsubject.index');
     }
 
 
@@ -98,6 +98,6 @@ class AssignsubjectController extends Controller
             }
         }
         toastr('Assign subject updated successfully', 'success');
-        return redirect()->route('setup.assignsubject.index');
+        return to_route('setup.assignsubject.index');
     }
 }

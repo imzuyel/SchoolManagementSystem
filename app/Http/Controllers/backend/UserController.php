@@ -55,7 +55,7 @@ class UserController extends Controller
         $user->save();
         toastr('User added successfully', 'success');
 
-        return redirect()->route('user.index');
+        return to_route('user.index');
     }
 
     public function edit(User $user)
@@ -84,7 +84,7 @@ class UserController extends Controller
         }
         $user->save();
         toastr('User updated successfully', 'info');
-        return redirect()->route('user.index');
+        return to_route('user.index');
     }
 
     public function destroy(User $user)
@@ -94,7 +94,7 @@ class UserController extends Controller
         }
         $user->delete();
         toastr('Category deleted successfully', 'success');
-        return redirect()->route('user.index');
+        return to_route('user.index');
     }
 
     public function userProfile()
@@ -147,7 +147,7 @@ class UserController extends Controller
             $user->password             = Hash::make($request->password);
             $user->save();
             Auth::logout();
-            return redirect()->route('login');
+            return to_route('login');
             toastr('Password updated successfully', 'info');
         } else {
             toastr('Your old password is invalid', 'error');

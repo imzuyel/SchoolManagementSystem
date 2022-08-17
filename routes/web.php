@@ -17,6 +17,7 @@ use App\Http\Controllers\backend\FeecategoryController;
 use App\Http\Controllers\backend\StudentClassController;
 use App\Http\Controllers\backend\AssignsubjectController;
 use App\Http\Controllers\backend\AssingstudentController;
+use App\Http\Controllers\backend\EmployeeSalaryController;
 use App\Http\Controllers\backend\RegistrationfeeController;
 
 Route::get('/', function () {
@@ -81,4 +82,5 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
 
 Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/register', EmployeeController::class);
+    Route::resource('/salary', EmployeeSalaryController::class);
 });

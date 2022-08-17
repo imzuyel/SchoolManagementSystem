@@ -9,7 +9,6 @@ use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use App\Models\Assingstudent;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 
 class RegistrationfeeController extends Controller

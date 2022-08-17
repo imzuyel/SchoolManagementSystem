@@ -32,7 +32,7 @@ class SubjectController extends Controller
         ]);
 
         toastr('School subject added successfully', 'success');
-        return redirect()->route('setup.subject.index');
+        return to_route('setup.subject.index');
     }
 
 
@@ -54,7 +54,7 @@ class SubjectController extends Controller
         ]);
 
         toastr('School subject updated successfully', 'success');
-        return redirect()->route('setup.subject.index');
+        return to_route('setup.subject.index');
     }
 
 
@@ -62,6 +62,6 @@ class SubjectController extends Controller
     {
         $subject->delete();
         toastr('School subject deleted successfully', 'success');
-        return redirect()->route('setup.subject.index');
+        return to_route('setup.subject.index');
     }
 }

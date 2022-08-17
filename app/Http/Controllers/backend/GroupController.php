@@ -32,7 +32,7 @@ class GroupController extends Controller
         ]);
 
         toastr('Group added successfully', 'success');
-        return redirect()->route('setup.group.index');
+        return to_route('setup.group.index');
     }
 
     public function edit(Group $group)
@@ -51,7 +51,7 @@ class GroupController extends Controller
         ]);
 
         toastr('Group updated successfully', 'info');
-        return redirect()->route('setup.group.index');
+        return to_route('setup.group.index');
     }
 
 
@@ -59,6 +59,6 @@ class GroupController extends Controller
     {
         $group->delete();
         toastr('Group deleted successfully', 'success');
-        return redirect()->route('setup.group.index');
+        return to_route('setup.group.index');
     }
 }

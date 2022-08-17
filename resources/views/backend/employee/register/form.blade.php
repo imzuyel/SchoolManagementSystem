@@ -46,7 +46,7 @@
           <div class="card-body">
             <div class="form-body">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label class="col-form-label">Name</label>
                     <input type="text"
@@ -63,7 +63,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label class="col-form-label">Email</label>
                     <input type="email"
@@ -97,7 +97,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label class="col-form-label">Date of Birth</label>
                     <input type="date"
@@ -112,7 +112,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label class="col-form-label">Join Date</label>
                     <input type="date"

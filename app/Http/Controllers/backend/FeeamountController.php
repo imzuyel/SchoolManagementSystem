@@ -49,7 +49,7 @@ class FeeamountController extends Controller
         }
 
         toastr('Fee Amount added successfully', 'success');
-        return redirect()->route('setup.feeamount.index');
+        return to_route('setup.feeamount.index');
     }
 
 
@@ -92,13 +92,13 @@ class FeeamountController extends Controller
             }
         }
         toastr('Fee Amount updated successfully', 'success');
-        return redirect()->route('setup.feeamount.index');
+        return to_route('setup.feeamount.index');
     }
 
     public function destroy(Feeamount $feeamount)
     {
         $feeamount->delete();
         toastr('Fee amount deleted successfully', 'success');
-        return redirect()->route('setup.feeamount.index');
+        return to_route('setup.feeamount.index');
     }
 }

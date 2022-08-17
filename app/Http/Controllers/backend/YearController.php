@@ -32,7 +32,7 @@ class YearController extends Controller
         ]);
 
         toastr('Year added successfully', 'success');
-        return redirect()->route('setup.year.index');
+        return to_route('setup.year.index');
     }
 
 
@@ -53,7 +53,7 @@ class YearController extends Controller
         ]);
 
         toastr('Year updated successfully', 'info');
-        return redirect()->route('setup.year.index');
+        return to_route('setup.year.index');
     }
 
 
@@ -61,6 +61,6 @@ class YearController extends Controller
     {
         $year->delete();
         toastr('Year deleted successfully', 'success');
-        return redirect()->route('setup.year.index');
+        return to_route('setup.year.index');
     }
 }

@@ -33,7 +33,7 @@ class ExamtypeController extends Controller
         ]);
 
         toastr('Exam type added successfully', 'success');
-        return redirect()->route('setup.examtype.index');
+        return to_route('setup.examtype.index');
     }
 
 
@@ -56,7 +56,7 @@ class ExamtypeController extends Controller
         ]);
 
         toastr('Exam type updated successfully', 'success');
-        return redirect()->route('setup.examtype.index');
+        return to_route('setup.examtype.index');
     }
 
 
@@ -64,6 +64,6 @@ class ExamtypeController extends Controller
     {
         $examtype->delete();
         toastr('Exam-type deleted successfully', 'success');
-        return redirect()->route('setup.examtype.index');
+        return to_route('setup.examtype.index');
     }
 }

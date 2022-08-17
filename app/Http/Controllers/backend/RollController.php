@@ -47,6 +47,6 @@ class RollController extends Controller
             }
         }
         toastr('Roll generate successfully', 'success');
-        return redirect()->route('student.rollgenerate');
+        return to_route('student.rollgenerate');
     }
 }

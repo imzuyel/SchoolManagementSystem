@@ -326,9 +326,18 @@
             <li class="{{ Request::is('employee/register/create') ? 'mm-active' : '' }}"> <a
                 href="{{ route('employee.register.create') }}"><i class="bx bx-plus"></i>Add</a>
             </li>
-
           </ul>
         </li>
+
+        <li class="{{ Request::is('employee/salary/*') ? 'mm-active' : '' }}">
+          <a href="{{ route('employee.salary.index') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Salary</div>
+          </a>
+
+        </li>
+
       </ul>
     </li>
 

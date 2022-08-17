@@ -8,16 +8,16 @@
     value={{ $class_id }}>
 
   <table id="example"
-    class="table text-center  table-striped table-bordered table-hover">
+    class="table text-center table-striped table-bordered table-hover">
     <thead>
       <tr>
         <th>#</th>
         <th>Id</th>
         <th>Student</th>
         <th>Roll</th>
-        <th>Exam fee</th>
+        <th>Registration Fee</th>
         <th>Discount</th>
-        <th>Total exam fee</th>
+        <th>Total Registration Fee</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -53,7 +53,7 @@
           <td>
             <a class="btn btn-sm btn-success"
               target="_blank"
-              href="{{ route('student.examfeepdf', [$student->student_id, $class_id]) }}"
+              href="{{ route('student.regfeepdf', [$student->student_id, $class_id]) }}"
               data-toggle="tooltip"
               title="Pay &#128221">Fee Slip</i>
             </a>

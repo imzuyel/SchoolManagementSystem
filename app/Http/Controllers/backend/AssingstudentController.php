@@ -103,7 +103,7 @@ class AssingstudentController extends Controller
 
         toastr('Student added successfully', 'success');
 
-        return redirect()->route('student.assingstudent.index');
+        return to_route('student.assingstudent.index');
     }
 
     public function show(Assingstudent $assingstudent)
@@ -186,7 +186,7 @@ class AssingstudentController extends Controller
 
         toastr('Student updated successfully', 'success');
 
-        return redirect()->route('student.assingstudent.index');
+        return to_route('student.assingstudent.index');
     }
 
 
@@ -200,7 +200,7 @@ class AssingstudentController extends Controller
         $assingstudent->delete();
         toastr('Student deleted successfully', 'success');
 
-        return redirect()->route('student.assingstudent.index');
+        return to_route('student.assingstudent.index');
     }
 
 
@@ -250,7 +250,7 @@ class AssingstudentController extends Controller
 
         toastr('Student promote successfully', 'success');
 
-        return redirect()->route('student.assingstudent.index');
+        return to_route('student.assingstudent.index');
     }
 
     public function pdf($id)

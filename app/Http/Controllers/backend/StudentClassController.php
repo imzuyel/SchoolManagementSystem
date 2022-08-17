@@ -33,7 +33,7 @@ class StudentClassController extends Controller
         ]);
 
         toastr('Class added successfully', 'success');
-        return redirect()->route('setup.class.index');
+        return to_route('setup.class.index');
     }
 
 
@@ -56,7 +56,7 @@ class StudentClassController extends Controller
         ]);
 
         toastr('Class updated successfully', 'success');
-        return redirect()->route('setup.class.index');
+        return to_route('setup.class.index');
     }
 
     public function destroy($id)
@@ -64,6 +64,6 @@ class StudentClassController extends Controller
         $class = StudentClass::findOrFail($id);
         $class->delete();
         toastr('Class deleted successfully', 'success');
-        return redirect()->route('setup.class.index');
+        return to_route('setup.class.index');
     }
 }
