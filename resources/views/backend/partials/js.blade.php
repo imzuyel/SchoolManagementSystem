@@ -202,6 +202,29 @@
         });
       });
 
+      //Exam Fee
+      $(".salaryPay").click(function() {
+        var date = $("#date").val();
+        $.ajax({
+          type: "post",
+          url: "/employee/monthly/salary/pay",
+          data: {
+            date: date,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+            $('table').removeAttr('id');
+          },
+          success: function(resp) {
+            $("#appendFee").html(resp);
+          },
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
 
       $('#leave_purpose_id').on('change', function() {
         var leave_purpose_id = $(this).val();

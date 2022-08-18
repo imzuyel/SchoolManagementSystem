@@ -18,10 +18,11 @@ use App\Http\Controllers\backend\LeavePruposeController;
 use App\Http\Controllers\backend\StudentClassController;
 use App\Http\Controllers\backend\AssignsubjectController;
 use App\Http\Controllers\backend\AssingstudentController;
-use App\Http\Controllers\backend\EmployeeattendanceController;
 use App\Http\Controllers\backend\EmployeeLeaveController;
 use App\Http\Controllers\backend\EmployeeSalaryController;
 use App\Http\Controllers\backend\RegistrationfeeController;
+use App\Http\Controllers\backend\EmployeePaySalaryController;
+use App\Http\Controllers\backend\EmployeeattendanceController;
 
 Route::get('/', function () {
     return view('backend.home');
@@ -89,4 +90,8 @@ Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/leavepurpose', LeavePruposeController::class);
     Route::resource('/leave', EmployeeLeaveController::class);
     Route::resource('/attendance', EmployeeattendanceController::class);
+
+    Route::resource('/paysalary', EmployeePaySalaryController::class);
+    Route::post('/monthly/salary/pay', [EmployeePaySalaryController::class, 'getEmployee']);
+    Route::get('/monthly/salary/payslip/{employee_id}', [EmployeePaySalaryController::class, 'MonthlySalaryPayslip'])->name('monthly.salary.payslip');
 });

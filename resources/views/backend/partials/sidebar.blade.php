@@ -326,17 +326,6 @@
             </li>
           </ul>
         </li>
-
-        <li class="{{ Request::is('employee/salary/*') ? 'mm-active' : '' }}">
-          <a href="{{ route('employee.salary.index') }}">
-            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
-            </div>
-            <div class="menu-title">Salary</div>
-          </a>
-
-        </li>
-
-
         <li class="{{ Request::is('employee/leavepurpose/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
@@ -373,7 +362,6 @@
             </li>
           </ul>
         </li>
-
         <li class="{{ Request::is('employee/attendance/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
@@ -392,6 +380,47 @@
             </li>
           </ul>
         </li>
+      </ul>
+    </li>
+
+
+
+    <li>
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        </div>
+        <div class="menu-title">Salary </div>
+      </a>
+      <ul class="{{ Request::is('employee/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('employee/salary/*') ? 'mm-active' : '' }}">
+          <a href="{{ route('employee.salary.index') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Incriment</div>
+          </a>
+        </li>
+
+        <li class="{{ Request::is('employee/paysalary/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Pay</div>
+          </a>
+          <ul class="{{ Request::is('employee/paysalary/*') ? 'mm-show' : '' }}">
+            <li
+              class="{{ Request::is('employee/paysalary/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
+              <a href="{{ route('employee.paysalary.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('employee/paysalary/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('employee.paysalary.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
+
 
 
       </ul>

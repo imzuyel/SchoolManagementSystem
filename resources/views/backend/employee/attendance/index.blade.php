@@ -2,7 +2,20 @@
 @section('title')
   All Employee Attendances
 @endsection
-
+@push('css')
+  <style>
+    .attendance {
+      position: relative;
+      top: -7px;
+      left: -3px;
+      border-radius: 50%;
+      font-size: 10px;
+      width: 14px;
+      height: 14px;
+      line-height: 11px;
+    }
+  </style>
+@endpush
 @section('content')
   <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
     <div class="pr-3 breadcrumb-title">Dashboard</div>
@@ -41,6 +54,7 @@
               <tr>
                 <th>#</th>
                 <th>Date</th>
+                <th>Attendance count</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -50,8 +64,18 @@
               <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ date('d M ,Y', strtotime($attendance->date)) }}</td>
+                <td>
+                  <span class="badge badge-success">present</span><span class="badge badge-primary attendance">
+                    {{ count(App\Models\Employeeattendance::where('date', $attendance->date)->where('attend_status', 'present')->get()) }}
+                  </span>
 
-
+                  <span class="badge badge-info">leave</span><span class="badge badge-primary attendance">
+                    {{ count(App\Models\Employeeattendance::where('date', $attendance->date)->where('attend_status', 'leave')->get()) }}
+                  </span>
+                  <span class="badge badge-danger">Absent</span><span class="badge badge-primary attendance">
+                    {{ count(App\Models\Employeeattendance::where('date', $attendance->date)->where('attend_status', 'absent')->get()) }}
+                  </span>
+                </td>
                 <td>
                   <a class="btn btn-sm btn-success"
                     href="{{ route('employee.attendance.edit', $attendance->date) }}"
