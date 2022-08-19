@@ -233,9 +233,8 @@
   </div>
 @endsection
 @push('js')
+  @include('backend.partials.select2')
   <script>
-    @include('backend.partials.select2')
-
     $(document).ready(function() {
       $(document).on('click', '.addeventmore', function() {
         var whole_extra_item_add = $('#whole_extra_item_add').html();

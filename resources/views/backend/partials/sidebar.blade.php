@@ -240,7 +240,7 @@
       </ul>
     </li>
 
-    <li class="menu-label">User</li>
+    <li class="menu-label">Student</li>
     <li>
       <a class="has-arrow"
         href="javascript:;">
@@ -300,6 +300,25 @@
 
       </ul>
     </li>
+    <li>
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        </div>
+        <div class="menu-title">Marks </div>
+      </a>
+      <ul class="{{ Request::is('mark/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('mark/entry/*') ? 'mm-active' : '' }}">
+          <a href="{{ route('mark.entry.index') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Entry</div>
+          </a>
+
+        </li>
+      </ul>
+    </li>
+    <li class="menu-label">Employee</li>
     <li>
       <a class="has-arrow"
         href="javascript:;">
@@ -380,51 +399,27 @@
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
 
-
-
-    <li>
-      <a class="has-arrow"
-        href="javascript:;">
-        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
-        </div>
-        <div class="menu-title">Salary </div>
-      </a>
-      <ul class="{{ Request::is('employee/*') ? 'mm-show' : '' }}">
         <li class="{{ Request::is('employee/salary/*') ? 'mm-active' : '' }}">
           <a href="{{ route('employee.salary.index') }}">
             <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
-            <div class="menu-title">Incriment</div>
+            <div class="menu-title">Salary Incriment</div>
           </a>
         </li>
-
         <li class="{{ Request::is('employee/paysalary/*') ? 'mm-active' : '' }}">
-          <a class="has-arrow"
-            href="javascript:;">
+          <a href="{{ route('employee.paysalary.index') }}">
             <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
-            <div class="menu-title">Pay</div>
+            <div class="menu-title">Pay Salary</div>
           </a>
-          <ul class="{{ Request::is('employee/paysalary/*') ? 'mm-show' : '' }}">
-            <li
-              class="{{ Request::is('employee/paysalary/*/edit') ? 'mm-active' : '' }} {{ Request::is('student/assing/student/*') ? 'mm-active' : '' }} class-active-2">
-              <a href="{{ route('employee.paysalary.index') }}"><i class="bx bx-add-to-queue">
-                </i>Manage</a>
-            </li>
-            <li class="{{ Request::is('employee/paysalary/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('employee.paysalary.create') }}"><i class="bx bx-plus"></i>Add</a>
-            </li>
-          </ul>
         </li>
-
-
-
-
       </ul>
     </li>
+
+
+
+
 
 
   </ul>

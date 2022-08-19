@@ -21,12 +21,12 @@ class EmployeePaySalaryController extends Controller
     {
 
         if ($request->ajax()) {
-            $where = array();
+            $where                  = array();
             if (isset($request->date)) {
-                $date = date('Y-m', strtotime($request->date));
-                $where[] = ['date', 'like', $date . '%'];
+                $date               = date('Y-m', strtotime($request->date));
+                $where[]            = ['date', 'like', $date . '%'];
             }
-            $employees                  = Employeeattendance::select('employee_id')->groupBy('employee_id')->with(['user'])->where($where)->get();
+            $employees              = Employeeattendance::select('employee_id')->groupBy('employee_id')->with(['user'])->where($where)->get();
             return view('backend.employee.paysalary.paysalaryajax', compact('employees', 'where'));
         }
     }
@@ -34,13 +34,13 @@ class EmployeePaySalaryController extends Controller
 
     public function MonthlySalaryPayslip(Request $request, $employee_id)
     {
-        $id = Employeeattendance::where('employee_id', $employee_id)->first();
-        $date = date('Y-m', strtotime($id->date));
+        $id                         = Employeeattendance::where('employee_id', $employee_id)->first();
+        $date                       = date('Y-m', strtotime($id->date));
         if ($date != '') {
             $where[] = ['date', 'like', $date . '%'];
         }
 
-        $data['details'] = Employeeattendance::with(['user'])->where($where)->where('employee_id', $id->employee_id)->get();
+        $data['details'] = Employeeattendance::with('user')->where($where)->where('employee_id', $id->employee_id)->first();
 
         $pdf = PDF::loadView('backend.employee.paysalary.pdf', $data);
         return $pdf->stream('document.pdf');

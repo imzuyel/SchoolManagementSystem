@@ -122,6 +122,35 @@
         });
       });
 
+      //Apppend mark
+      $(".markSearch").click(function() {
+        var year_id = $("#year_id").val();
+        var class_id = $("#class_id").val();
+        var assignsubject_id = $("#assignsubject_id").val();
+        var examtype_id = $("#examtype_id").val();
+        $.ajax({
+          type: "post",
+          url: "/mark/entry/student/get",
+          data: {
+            year_id: year_id,
+            class_id: class_id,
+            assignsubject_id: assignsubject_id,
+            examtype_id: examtype_id,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+          },
+          success: function(resp) {
+            $("#appendMark").html(resp);
+          },
+
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
 
       //Regstration fee
       $(".feeSearch").click(function() {
@@ -214,7 +243,6 @@
           },
           beforeSend: function() {
             $(".pace").removeClass("pace-inactive");
-            $('table').removeAttr('id');
           },
           success: function(resp) {
             $("#appendFee").html(resp);
@@ -234,6 +262,38 @@
           $('#new_purpose').hide();
         }
       });
+
+
+      $('#class_id').on('change', function() {
+        var class_id = $(this).val();
+        $.ajax({
+          type: "POST",
+          url: "/mark/entry/get/class",
+          data: {
+            'class_id': class_id,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+          },
+          success: function(resp) {
+            $("#classAppend").html(resp);
+            $("#assignsubject_id").select2({
+              theme: "bootstrap4",
+              width: $(this).data("width") ?
+                $(this).data("width") : $(this).hasClass("w-100") ?
+                "100%" : "style",
+              placeholder: $(this).data("placeholder"),
+              allowClear: Boolean($(this).data("allow-clear")),
+            });
+          },
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
+      //
 
     });
   </script>

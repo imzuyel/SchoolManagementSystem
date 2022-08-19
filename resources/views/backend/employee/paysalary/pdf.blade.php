@@ -3,6 +3,10 @@
 
 <head>
   <style>
+    body {
+      font-size: 12px;
+    }
+
     #customers {
       font-family: Arial, Helvetica, sans-serif;
       border-collapse: collapse;
@@ -40,11 +44,12 @@
     <tr>
       <td>
         <h2>
-          <?php $image_path = '/upload/easyschool.png'; ?>
-          <img src="{{ public_path() . $image_path }}"
-            width="200"
-            height="100">
-
+          <img
+            @if (file_exists($details->user->profile_photo_path)) src="/{{ $details->user->profile_photo_path }}"
+                    @else
+                    src="{{ asset('images/noimg.png') }}" @endif
+            alt="{{ $details->user->name }}"
+            width="100">
         </h2>
       </td>
       <td>
@@ -62,15 +67,15 @@
 
   @php
 
-    $date = date('Y-m', strtotime($details['0']->date));
+    $date = date('Y-m', strtotime($details->date));
     if ($date != '') {
         $where[] = ['date', 'like', $date . '%'];
     }
     $totalattend = App\Models\EmployeeAttendance::with(['user'])
         ->where($where)
-        ->where('employee_id', $details['0']->employee_id)
+        ->where('employee_id', $details->employee_id)
         ->get();
-    $salary = (float) $details['0']['user']['salary'];
+    $salary = (float) $details->user->salary;
     $salaryperday = (float) $salary / 30;
     $absentcount = count($totalattend->where('attend_status', 'absent'));
     $totalsalaryminus = (float) $absentcount * (float) $salaryperday;
@@ -87,12 +92,12 @@
     <tr>
       <td>1</td>
       <td><b>Employee Name</b></td>
-      <td>{{ $details['0']['user']['name'] }}</td>
+      <td>{{ $details->user->name }}</td>
     </tr>
     <tr>
       <td>2</td>
       <td><b>Basic Salary</b></td>
-      <td>{{ $details['0']['user']['salary'] }}</td>
+      <td>{{ $details->user->salary }}</td>
     </tr>
 
     <tr>
@@ -104,7 +109,7 @@
     <tr>
       <td>4</td>
       <td><b>Month</b></td>
-      <td>{{ date('M Y', strtotime($details['0']->date)) }}</td>
+      <td>{{ date('M Y', strtotime($details->date)) }}</td>
     </tr>
     <tr>
       <td>5</td>
@@ -116,7 +121,7 @@
   </table>
   <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date('d M Y') }}</i>
-
+  <br> <br>
   <hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
 
   <table id="customers">
@@ -128,12 +133,12 @@
     <tr>
       <td>1</td>
       <td><b>Employee Name</b></td>
-      <td>{{ $details['0']['user']['name'] }}</td>
+      <td>{{ $details->user->name }}</td>
     </tr>
     <tr>
       <td>2</td>
       <td><b>Basic Salary</b></td>
-      <td>{{ $details['0']['user']['salary'] }}</td>
+      <td>{{ $details->user->salary }}</td>
     </tr>
 
     <tr>
@@ -145,7 +150,7 @@
     <tr>
       <td>4</td>
       <td><b>Month</b></td>
-      <td>{{ date('M Y', strtotime($details['0']->date)) }}</td>
+      <td>{{ date('M Y', strtotime($details->date)) }}</td>
     </tr>
     <tr>
       <td>5</td>
@@ -163,4 +168,3 @@
 </body>
 
 </html>
-Footer

@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\SubjectController;
 use App\Http\Controllers\backend\EmployeeController;
 use App\Http\Controllers\backend\ExamtypeController;
 use App\Http\Controllers\backend\FeeamountController;
+use App\Http\Controllers\backend\MarkentryController;
 use App\Http\Controllers\backend\MonthlyfeeController;
 use App\Http\Controllers\backend\DesignationController;
 use App\Http\Controllers\backend\FeecategoryController;
@@ -94,4 +95,10 @@ Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/paysalary', EmployeePaySalaryController::class);
     Route::post('/monthly/salary/pay', [EmployeePaySalaryController::class, 'getEmployee']);
     Route::get('/monthly/salary/payslip/{employee_id}', [EmployeePaySalaryController::class, 'MonthlySalaryPayslip'])->name('monthly.salary.payslip');
+});
+
+Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
+    Route::resource('/entry', MarkentryController::class);
+    Route::post('/entry/get/class', [MarkentryController::class, 'getClass']);
+    Route::post('/entry/student/get', [MarkentryController::class, 'markgenerateHere']);
 });
