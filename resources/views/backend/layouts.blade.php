@@ -9,6 +9,7 @@
   <meta name="csrf-token"
     content="{{ csrf_token() }}" />
   <title>{{ config('app.name') }} | @yield('title')</title>
+
   <!--favicon-->
   @include('backend.partials.css')
   @stack('css')
@@ -58,6 +59,7 @@
 
   <!-- JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
   @include('backend.partials.toastr')
   <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
   <script src="{{ asset('/assets/js/popper.min.js') }}"></script>
@@ -72,6 +74,7 @@
   @include('backend.partials.js')
   @stack('js')
   <!-- App JS -->
+
   <script src="{{ asset('/assets/js/app.js') }}"></script>
 </body>
 

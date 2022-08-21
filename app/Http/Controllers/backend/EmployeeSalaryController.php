@@ -43,7 +43,7 @@ class EmployeeSalaryController extends Controller
         $salaryData->effected_salary    = date('Y-m-d', strtotime($request->effected_salary));
         $salaryData->save();
 
-        toastr('Salary Increment', 'success');
+        noty('Salary Increment', 'success');
 
         return to_route('employee.salary.index');
     }

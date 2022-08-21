@@ -32,7 +32,7 @@ class LeavePruposeController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Leave purpose added successfully', 'success');
+        noty('Leave purpose added successfully', 'success');
         return to_route('employee.leavepurpose.index');
     }
 
@@ -55,7 +55,7 @@ class LeavePruposeController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Leave purpose added successfully', 'success');
+        noty('Leave purpose added successfully', 'success');
         return to_route('employee.leavepurpose.index');
     }
 
@@ -64,7 +64,7 @@ class LeavePruposeController extends Controller
     {
         $leavePurpose = LeavePurpose::findOrFail($id);
         $leavePurpose->delete();
-        toastr('Leave Purpose deleted successfully', 'success');
+        noty('Leave Purpose deleted successfully', 'success');
         return to_route('employee.leavepurpose.index');
     }
 }

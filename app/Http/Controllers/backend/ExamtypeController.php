@@ -32,7 +32,7 @@ class ExamtypeController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Exam type added successfully', 'success');
+        noty('Exam type added successfully', 'success');
         return to_route('setup.examtype.index');
     }
 
@@ -55,7 +55,7 @@ class ExamtypeController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Exam type updated successfully', 'success');
+        noty('Exam type updated successfully', 'success');
         return to_route('setup.examtype.index');
     }
 
@@ -63,7 +63,7 @@ class ExamtypeController extends Controller
     public function destroy(Examtype $examtype)
     {
         $examtype->delete();
-        toastr('Exam-type deleted successfully', 'success');
+        noty('Exam-type deleted successfully', 'success');
         return to_route('setup.examtype.index');
     }
 }

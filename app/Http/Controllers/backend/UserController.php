@@ -53,7 +53,7 @@ class UserController extends Controller
             $user->profile_photo_path = $this->uploadeImage($request);
         }
         $user->save();
-        toastr('User added successfully', 'success');
+        noty('User added successfully', 'success');
 
         return to_route('user.index');
     }
@@ -83,7 +83,7 @@ class UserController extends Controller
             $user->profile_photo_path = $this->uploadeImage($request);
         }
         $user->save();
-        toastr('User updated successfully', 'info');
+        noty('User updated successfully', 'info');
         return to_route('user.index');
     }
 
@@ -93,7 +93,7 @@ class UserController extends Controller
             unlink($user->profile_photo_path);
         }
         $user->delete();
-        toastr('Category deleted successfully', 'success');
+        noty('Category deleted successfully', 'success');
         return to_route('user.index');
     }
 
@@ -131,7 +131,7 @@ class UserController extends Controller
             $user->profile_photo_path   = $this->uploadeImage($request);
         }
         $user->save();
-        toastr('User updated successfully', 'info');
+        noty('User updated successfully', 'info');
         return redirect()->back();
     }
     public function userProfilrPasswordUpdate(Request $request)
@@ -148,9 +148,9 @@ class UserController extends Controller
             $user->save();
             Auth::logout();
             return to_route('login');
-            toastr('Password updated successfully', 'info');
+            noty('Password updated successfully', 'info');
         } else {
-            toastr('Your old password is invalid', 'error');
+            noty('Your old password is invalid', 'error');
             return redirect()->back();
         }
     }

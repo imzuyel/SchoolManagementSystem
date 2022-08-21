@@ -31,7 +31,7 @@ class YearController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Year added successfully', 'success');
+        noty('Year added successfully', 'success');
         return to_route('setup.year.index');
     }
 
@@ -52,7 +52,7 @@ class YearController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Year updated successfully', 'info');
+        noty('Year updated successfully', 'info');
         return to_route('setup.year.index');
     }
 
@@ -60,7 +60,7 @@ class YearController extends Controller
     public function destroy(Year $year)
     {
         $year->delete();
-        toastr('Year deleted successfully', 'success');
+        noty('Year deleted successfully', 'success');
         return to_route('setup.year.index');
     }
 }

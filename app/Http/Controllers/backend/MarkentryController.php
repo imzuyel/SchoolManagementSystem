@@ -83,7 +83,7 @@ class MarkentryController extends Controller
                 $mark->save();
             }
         }
-        toastr('Mark added successfully', 'success');
+        noty('Mark added successfully', 'success');
         return to_route('mark.entry.index');
     }
 

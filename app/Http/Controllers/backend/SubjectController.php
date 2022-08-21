@@ -31,7 +31,7 @@ class SubjectController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('School subject added successfully', 'success');
+        noty('School subject added successfully', 'success');
         return to_route('setup.subject.index');
     }
 
@@ -53,7 +53,7 @@ class SubjectController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('School subject updated successfully', 'success');
+        noty('School subject updated successfully', 'success');
         return to_route('setup.subject.index');
     }
 
@@ -61,7 +61,7 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         $subject->delete();
-        toastr('School subject deleted successfully', 'success');
+        noty('School subject deleted successfully', 'success');
         return to_route('setup.subject.index');
     }
 }

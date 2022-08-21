@@ -48,7 +48,7 @@ class FeeamountController extends Controller
             }
         }
 
-        toastr('Fee Amount added successfully', 'success');
+        noty('Fee Amount added successfully', 'success');
         return to_route('setup.feeamount.index');
     }
 
@@ -91,14 +91,14 @@ class FeeamountController extends Controller
                 $feeamount->save();
             }
         }
-        toastr('Fee Amount updated successfully', 'success');
+        noty('Fee Amount updated successfully', 'success');
         return to_route('setup.feeamount.index');
     }
 
     public function destroy(Feeamount $feeamount)
     {
         $feeamount->delete();
-        toastr('Fee amount deleted successfully', 'success');
+        noty('Fee amount deleted successfully', 'success');
         return to_route('setup.feeamount.index');
     }
 }

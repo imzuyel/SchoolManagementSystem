@@ -101,7 +101,7 @@ class AssingstudentController extends Controller
         }
         $user->save();
 
-        toastr('Student added successfully', 'success');
+        noty('Student added successfully', 'success');
 
         return to_route('student.assingstudent.index');
     }
@@ -184,7 +184,7 @@ class AssingstudentController extends Controller
         }
         $user->save();
 
-        toastr('Student updated successfully', 'success');
+        noty('Student updated successfully', 'success');
 
         return to_route('student.assingstudent.index');
     }
@@ -198,7 +198,7 @@ class AssingstudentController extends Controller
         $user->delete();
         $discount->delete();
         $assingstudent->delete();
-        toastr('Student deleted successfully', 'success');
+        noty('Student deleted successfully', 'success');
 
         return to_route('student.assingstudent.index');
     }
@@ -248,7 +248,7 @@ class AssingstudentController extends Controller
         $discount->discount                 = $request->discount;
         $discount->save();
 
-        toastr('Student promote successfully', 'success');
+        noty('Student promote successfully', 'success');
 
         return to_route('student.assingstudent.index');
     }

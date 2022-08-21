@@ -46,7 +46,7 @@ class RollController extends Controller
                 Assingstudent::where(['year_id' => $request->year_id, 'class_id' => $request->class_id, 'student_id' => $request->student_id[$i]])->update(['roll' => $request->roll[$i]]);
             }
         }
-        toastr('Roll generate successfully', 'success');
+        noty('Roll generate successfully', 'success');
         return to_route('student.rollgenerate');
     }
 }

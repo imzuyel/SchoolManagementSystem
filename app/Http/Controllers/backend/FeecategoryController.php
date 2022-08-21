@@ -31,7 +31,7 @@ class FeecategoryController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Fee Category added successfully', 'success');
+        noty('Fee Category added successfully', 'success');
         return to_route('setup.feecategory.index');
     }
 
@@ -51,7 +51,7 @@ class FeecategoryController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Fee Category  updated successfully', 'info');
+        noty('Fee Category  updated successfully', 'info');
         return to_route('setup.feecategory.index');
     }
 
@@ -59,7 +59,7 @@ class FeecategoryController extends Controller
     public function destroy(Feecategory $feecategory)
     {
         $feecategory->delete();
-        toastr('Fee Category deleted successfully', 'success');
+        noty('Fee Category deleted successfully', 'success');
         return to_route('setup.feecategory.index');
     }
 }

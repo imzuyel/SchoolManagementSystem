@@ -31,7 +31,7 @@ class GroupController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Group added successfully', 'success');
+        noty('Group added successfully', 'success');
         return to_route('setup.group.index');
     }
 
@@ -50,7 +50,7 @@ class GroupController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Group updated successfully', 'info');
+        noty('Group updated successfully', 'info');
         return to_route('setup.group.index');
     }
 
@@ -58,7 +58,7 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         $group->delete();
-        toastr('Group deleted successfully', 'success');
+        noty('Group deleted successfully', 'success');
         return to_route('setup.group.index');
     }
 }

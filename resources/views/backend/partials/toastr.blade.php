@@ -1,10 +1,10 @@
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-  integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+  href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"
+  integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-  integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+  integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"></script>
 
@@ -12,7 +12,12 @@
 <script>
   @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
-      toastr.error('{{ $error }}');
+      new Noty({
+        type: 'error',
+        layout: 'topRight',
+        text: '{{ $error }}',
+
+      }).show();
     @endforeach
   @endif
 </script>

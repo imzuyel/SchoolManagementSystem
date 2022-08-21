@@ -14,7 +14,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
-        "yoeunes/toastr": "^2.0"
+        "php-flasher/flasher-noty-laravel": "^1.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

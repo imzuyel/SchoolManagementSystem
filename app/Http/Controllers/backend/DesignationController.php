@@ -33,7 +33,7 @@ class DesignationController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Designation added successfully', 'success');
+        noty('Designation added successfully', 'success');
         return to_route('setup.designation.index');
     }
 
@@ -54,14 +54,14 @@ class DesignationController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Designation updated successfully', 'info');
+        noty('Designation updated successfully', 'info');
         return to_route('setup.designation.index');
     }
 
     public function destroy(Designation $designation)
     {
         $designation->delete();
-        toastr('Designation deleted successfully', 'success');
+        noty('Designation deleted successfully', 'success');
         return to_route('setup.designation.index');
     }
 }

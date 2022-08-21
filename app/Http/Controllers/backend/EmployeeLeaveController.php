@@ -41,7 +41,7 @@ class EmployeeLeaveController extends Controller
         if ($request->leave_purpose_id == "0") {
             $check                          = LeavePurpose::where('name', $request->name)->get();
             if (count($check) > 0) {
-                toastr('Duplicate is purpose save', 'error');
+                noty('Duplicate is purpose save', 'error');
                 return redirect()->back();
             } else {
                 $leavepurpose               = new LeavePurpose();
@@ -61,7 +61,7 @@ class EmployeeLeaveController extends Controller
         $data->end_date                     = date('Y-m-d', strtotime($request->end_date));
         $data->save();
 
-        toastr('Employee leave added successfully', 'success');
+        noty('Employee leave added successfully', 'success');
         return to_route('employee.leave.index');
     }
 
@@ -90,7 +90,7 @@ class EmployeeLeaveController extends Controller
         if ($request->leave_purpose_id == "0") {
             $check                          = LeavePurpose::where('name', $request->name)->get();
             if (count($check) > 1) {
-                toastr('Duplicate is purpose save', 'error');
+                noty('Duplicate is purpose save', 'error');
                 return redirect()->back();
             } else {
                 $leavepurpose               = new LeavePurpose();
@@ -110,7 +110,7 @@ class EmployeeLeaveController extends Controller
         $data->end_date                     = date('Y-m-d', strtotime($request->end_date));
         $data->save();
 
-        toastr('Employee leave updated successfully', 'success');
+        noty('Employee leave updated successfully', 'success');
         return to_route('employee.leave.index');
     }
 
@@ -120,7 +120,7 @@ class EmployeeLeaveController extends Controller
         $leave = EmployeeLeave::find($id);
         $leave->delete();
 
-        toastr('Employee leave deleted successfully', 'success');
+        noty('Employee leave deleted successfully', 'success');
         return to_route('employee.leave.index');
     }
 }

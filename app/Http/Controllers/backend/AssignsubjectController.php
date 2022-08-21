@@ -52,7 +52,7 @@ class AssignsubjectController extends Controller
             }
         }
 
-        toastr('Assign subject added successfully', 'success');
+        noty('Assign subject added successfully', 'success');
         return to_route('setup.assignsubject.index');
     }
 
@@ -97,7 +97,7 @@ class AssignsubjectController extends Controller
                 $assignsubject->save();
             }
         }
-        toastr('Assign subject updated successfully', 'success');
+        noty('Assign subject updated successfully', 'success');
         return to_route('setup.assignsubject.index');
     }
 }

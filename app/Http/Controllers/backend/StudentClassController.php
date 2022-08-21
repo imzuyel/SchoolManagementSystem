@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class StudentClassController extends Controller
 {
@@ -32,7 +32,7 @@ class StudentClassController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Class added successfully', 'success');
+        noty('Class added successfully', 'success');
         return to_route('setup.class.index');
     }
 
@@ -55,7 +55,7 @@ class StudentClassController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        toastr('Class updated successfully', 'success');
+        noty('Data has been saved successfully!', 'success');
         return to_route('setup.class.index');
     }
 
@@ -63,7 +63,7 @@ class StudentClassController extends Controller
     {
         $class = StudentClass::findOrFail($id);
         $class->delete();
-        toastr('Class deleted successfully', 'success');
+        noty('Class deleted successfully', 'success');
         return to_route('setup.class.index');
     }
 }

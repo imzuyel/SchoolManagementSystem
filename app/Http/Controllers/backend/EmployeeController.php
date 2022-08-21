@@ -75,7 +75,7 @@ class EmployeeController extends Controller
         }
         $user->save();
 
-        toastr('Employee added successfully', 'success');
+        noty('Employee added successfully', 'success');
 
         return redirect()->route('employee.register.index');
     }
@@ -134,7 +134,7 @@ class EmployeeController extends Controller
         }
         $user->save();
 
-        toastr('Employee updated successfully', 'success');
+        noty('Employee updated successfully', 'success');
 
         return to_route('employee.register.index');
     }
@@ -146,7 +146,7 @@ class EmployeeController extends Controller
         $usersalary     = EmployeeSalary::where('employee_id', $user->id);
         $usersalary->delete();
         $user->delete();
-        toastr('Employee deleted successfully', 'success');
+        noty('Employee deleted successfully', 'success');
         return redirect()->route('employee.register.index');
     }
 

@@ -185,8 +185,8 @@ return [
         /*
          * Package Service Providers...
          */
-        Yoeunes\Toastr\ToastrServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+
 
 
         /*

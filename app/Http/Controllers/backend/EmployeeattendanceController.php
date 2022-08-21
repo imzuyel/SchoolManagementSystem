@@ -39,7 +39,7 @@ class EmployeeattendanceController extends Controller
             $attend->attend_status              = $request->$attend_status;
             $attend->save();
         }
-        toastr('Attendance save successfully', 'success');
+        noty('Attendance save successfully', 'success');
         return to_route('employee.attendance.index');
     }
 
@@ -73,7 +73,7 @@ class EmployeeattendanceController extends Controller
             $attend->attend_status              = $request->$attend_status;
             $attend->save();
         }
-        toastr('Attendance updated successfully', 'success');
+        noty('Attendance updated successfully', 'success');
         return to_route('employee.attendance.index');
     }
 
