@@ -151,6 +151,35 @@
         });
       });
 
+      //Apppend mark
+      $(".markEdit").click(function() {
+        var year_id = $("#year_id").val();
+        var class_id = $("#class_id").val();
+        var assignsubject_id = $("#assignsubject_id").val();
+        var examtype_id = $("#examtype_id").val();
+        $.ajax({
+          type: "post",
+          url: "/mark/entry/student/get/edit",
+          data: {
+            year_id: year_id,
+            class_id: class_id,
+            assignsubject_id: assignsubject_id,
+            examtype_id: examtype_id,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+          },
+          success: function(resp) {
+            $("#appendMark").html(resp);
+          },
+
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
 
       //Regstration fee
       $(".feeSearch").click(function() {

@@ -307,12 +307,18 @@
         </div>
         <div class="menu-title">Marks </div>
       </a>
-      <ul class="{{ Request::is('mark/*') ? 'mm-show' : '' }}">
-        <li class="{{ Request::is('mark/entry/*') ? 'mm-active' : '' }}">
+      <ul class="{{ Request::is('mark/') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('mark/entry/') ? 'mm-active' : '' }}">
           <a href="{{ route('mark.entry.index') }}">
             <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
             </div>
             <div class="menu-title">Entry</div>
+          </a>
+        <li class="{{ Request::is('mark/entry/student/*') ? 'mm-active' : '' }}">
+          <a href="{{ route('mark.entry.editMark') }}">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Edit</div>
           </a>
 
         </li>

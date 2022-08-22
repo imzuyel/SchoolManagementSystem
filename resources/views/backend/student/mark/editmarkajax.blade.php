@@ -12,7 +12,7 @@
          <div class="card-body">
            <div class="table-responsive">
 
-             <form action="{{ route('mark.entry.store') }}"
+             <form action="{{ route('mark.entry.update') }}"
                method="POST">
                @csrf
                <input type="hidden"
@@ -79,7 +79,7 @@
                  <button type="submit"
                    class="px-4 btn btn-primary"
                    data-toggle="tooltip"
-                   title="Save to database &#128190;"> <i class="bx bx-save"></i>Save</button>
+                   title="Update to database &#128190;"> <i class="bx bx-save"></i>Update</button>
                </div>
              </form>
 

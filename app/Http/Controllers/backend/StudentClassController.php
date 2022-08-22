@@ -55,7 +55,7 @@ class StudentClassController extends Controller
             'status'                => $request->filled('status'),
         ]);
 
-        noty('Data has been saved successfully!', 'success');
+        flash('Data has been updated successfully!', 'success');
         return to_route('setup.class.index');
     }
 
@@ -63,7 +63,7 @@ class StudentClassController extends Controller
     {
         $class = StudentClass::findOrFail($id);
         $class->delete();
-        noty('Class deleted successfully', 'success');
+        noty('Class deleted successfully', 'error');
         return to_route('setup.class.index');
     }
 }

@@ -98,7 +98,11 @@ Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
 });
 
 Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
-    Route::resource('/entry', MarkentryController::class);
+    Route::get('/entry', [MarkentryController::class, 'index'])->name('entry.index');
     Route::post('/entry/get/class', [MarkentryController::class, 'getClass']);
     Route::post('/entry/student/get', [MarkentryController::class, 'markgenerateHere']);
+    Route::post('/entry/student/mark/store', [MarkentryController::class, 'update'])->name('entry.store');
+    Route::get('/entry/student/edit/get', [MarkentryController::class, 'editMark'])->name('entry.editMark');
+    Route::post('/entry/student/get/edit', [MarkentryController::class, 'markeditHere']);
+    Route::post('/entry/student/mark/update', [MarkentryController::class, 'update'])->name('entry.update');
 });

@@ -93,7 +93,7 @@
           </div>
           <div class="pt-3 col-md-2 ">
 
-            <a class="btn btn-success markSearch"
+            <a class="btn btn-success markEdit"
               href="javascript:;">Search</a>
           </div>
         </div>
@@ -101,7 +101,7 @@
     </div>
   </div>
   <div id="appendMark">
-    @include('backend.student.mark.markajax')
+    @include('backend.student.mark.editmarkajax')
   </div>
 @endsection
 @push('js')

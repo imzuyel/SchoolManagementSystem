@@ -8,13 +8,14 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"></script>
 
-
 <script>
   @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
       new Noty({
         type: 'error',
         layout: 'topRight',
+        timeout: 89000,
+        closeWith: ['button'],
         text: '{{ $error }}',
 
       }).show();
