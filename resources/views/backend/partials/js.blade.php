@@ -322,7 +322,34 @@
         });
       });
 
-      //
+      //Exam Fee
+      $(".studentFeeSearch").click(function() {
+        var year_id = $("#year_id").val();
+        var class_id = $("#class_id").val();
+        var fee_category_id = $("#fee_category_id").val();
+        var date = $("#date").val();
+        $.ajax({
+          type: "post",
+          url: "/account/studentfee/get",
+          data: {
+            year_id: year_id,
+            class_id: class_id,
+            fee_category_id: fee_category_id,
+            date: date,
+
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+            $('table').removeAttr('id');
+          },
+          success: function(resp) {
+            $("#appendStudentFee").html(resp);
+          },
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
 
     });
   </script>

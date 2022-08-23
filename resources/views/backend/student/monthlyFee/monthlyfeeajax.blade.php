@@ -8,7 +8,7 @@
     value={{ $class_id }}>
 
   <table id="example"
-    class=" table table-striped table-bordered text-center table-hover">
+    class="table text-center table-striped table-bordered table-hover">
     <thead>
       <tr>
         <th>#</th>
@@ -30,7 +30,7 @@
           <td>{{ $key + 1 }}</td>
           <td>{{ $student->student->id_no }}</td>
           <td>
-            <div class="media align-items-center mt-3 ">
+            <div class="mt-3 media align-items-center ">
               <img
                 @if (file_exists($student->student->profile_photo_path)) src="/{{ $student->student->profile_photo_path }}"
                 @else
@@ -41,7 +41,7 @@
                 height="45">
               <div class="media-body"
                 style="flex: 0.5;">
-                <p class="font-weight-bold mb-0 ml-2">{{ $student->student->name }}</p>
+                <p class="mb-0 ml-2 font-weight-bold">{{ $student->student->name }}</p>
               </div>
             </div>
           </td>
@@ -56,14 +56,14 @@
                 target="_blank"
                 href="{{ route('student.monthlyfeepdf', [$student->student_id, $class_id, $month]) }}"
                 data-toggle="tooltip"
-                title="Pay &#128221">Fee Slip</i>
+                title="Pay &#128221">Fee Slip
               </a>
             @else
               <a class="btn btn-sm btn-success"
                 target="_blank"
                 href="{{ route('student.monthlyfeepdf', [$student->student_id, $class_id, 'January']) }}"
                 data-toggle="tooltip"
-                title="Pay &#128221">Fee Slip</i>
+                title="Pay &#128221">Fee Slip
               </a>
             @endif
 

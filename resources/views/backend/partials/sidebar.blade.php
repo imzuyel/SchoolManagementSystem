@@ -346,8 +346,6 @@
       </ul>
     </li>
 
-
-
     <li class="menu-label">Employee</li>
     <li>
       <a class="has-arrow"
@@ -447,6 +445,37 @@
       </ul>
     </li>
 
+
+    <li class="menu-label">Account Management</li>
+    <li>
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        </div>
+        <div class="menu-title">Student </div>
+      </a>
+      <ul class="{{ Request::is('acount/*') ? 'mm-show' : '' }}">
+
+        <li class="{{ Request::is('acount/studentfee/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Fee</div>
+          </a>
+          <ul class="{{ Request::is('account/studentfee/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('account/studentfee/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('account.studentfee.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('account/studentfee/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('account.studentfee.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
 
 
 

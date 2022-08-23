@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\Grade;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\UserController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\backend\setup\DesignationController;
 use App\Http\Controllers\backend\setup\FeecategoryController;
 use App\Http\Controllers\backend\setup\StudentClassController;
 use App\Http\Controllers\backend\student\MonthlyfeeController;
+use App\Http\Controllers\backend\account\StudentFeeController;
 use App\Http\Controllers\backend\setup\AssignsubjectController;
 use App\Http\Controllers\backend\employee\LeavePruposeController;
 use App\Http\Controllers\backend\student\AssingstudentController;
@@ -26,6 +28,7 @@ use App\Http\Controllers\backend\employee\EmployeeSalaryController;
 use App\Http\Controllers\backend\student\RegistrationfeeController;
 use App\Http\Controllers\backend\employee\EmployeePaySalaryController;
 use App\Http\Controllers\backend\employee\EmployeeattendanceController;
+
 
 Route::get('/', function () {
     return view('backend.home');
@@ -111,4 +114,11 @@ Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
 
     // Grade
     Route::resource('/grade', GradeController::class)->except('show');
+});
+
+Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
+    // Mark entry
+    // Grade
+    Route::resource('/studentfee', StudentFeeController::class)->except('show');
+    Route::post('/studentfee/get', [StudentFeeController::class, 'getData']);
 });
