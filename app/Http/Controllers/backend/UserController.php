@@ -31,7 +31,7 @@ class UserController extends Controller
             'user_type'             => 'required|string',
             'email'                 => 'required|string|unique:users,email',
             'password'              => 'nullable|string',
-            'image'                 => 'nullable|image|mimes:jpg,png,jpeg,svg',
+            'image'                 => 'nullable|image|mimes:jpg,png,jpeg,svg,webp',
         ]);
         $user                       = new User();
         $user->name                 = $request->name;
