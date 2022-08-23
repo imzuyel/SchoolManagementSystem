@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\student;
 
 use App\Models\Year;
 use App\Models\StudentClass;

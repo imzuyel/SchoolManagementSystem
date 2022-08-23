@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
 use App\Models\Feeamount;
 use App\Models\Feecategory;
@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 
 class FeeamountController extends Controller
 {
-
     public function index()
     {
         $data['feeamounts'] = Feeamount::select('fee_category_id')->groupBy('fee_category_id')->get();

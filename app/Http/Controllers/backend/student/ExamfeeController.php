@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\student;
 
 use App\Models\Year;
+use App\Models\Examtype;
 use App\Models\Feeamount;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
@@ -10,41 +11,42 @@ use App\Models\Assingstudent;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 
-class MonthlyfeeController extends Controller
+class ExamfeeController extends Controller
 {
-    public  function monthlyfee()
+    public  function examfee()
     {
+        $data['exams']                      = Examtype::where('status', true)->get();
         $data['years']                      = Year::latest()->where('status', true)->get();
         $data['classes']                    = StudentClass::latest()->where('status', true)->get();
         $data['year_id']                    = Year::orderBy('id', 'desc')->first()->id;
         $data['class_id']                   = StudentClass::orderBy('id', 'desc')->first()->id;
-        $data['feecategoryamount']          = Feeamount::where('fee_category_id', 2)->where('class_id', $data['class_id'],)->first();
+        $data['feecategoryamount']          = Feeamount::where('fee_category_id', 3)->where('class_id', $data['class_id'],)->first();
+        $data['examtype']                   = Examtype::where('status', true)->first()->name;
         $data['students']                   = Assingstudent::where(['year_id' => $data['year_id'], 'class_id' => $data['class_id']])->latest()->get();
 
-        return view('backend.student.monthlyFee.index', $data);
+        return view('backend.student.examFee.index', $data);
     }
 
 
-    public  function monthlyfeepdf($user_id, $class_id, $month)
+    public  function examfeepdf($user_id, $class_id, $examtype)
     {
 
-        $data['feecategoryamount']  = Feeamount::where('fee_category_id', 2)->where('class_id', $class_id)->first();
-        $data['student']            = Assingstudent::where('student_id', $user_id)->where('class_id', $class_id)->first();
-        $data['month']              = $month;
-        $pdf = Pdf::loadView('backend.student.monthlyFee.pdf', $data);
+        $data['feecategoryamount']          = Feeamount::where('fee_category_id', 3)->where('class_id', $class_id)->first();
+        $data['student']                    = Assingstudent::where('student_id', $user_id)->where('class_id', $class_id)->first();
+        $data['examtype']                   = $examtype;
+        $pdf                                = Pdf::loadView('backend.student.examFee.pdf', $data);
         return $pdf->stream();
     }
 
-    public function monthlyfeeget(Request $request)
+    public function examfeeget(Request $request)
     {
         if ($request->ajax()) {
             $data['year_id']                = $request->year_id;
-            $data['month']                  = $request->month;
+            $data['examtype']               = $request->examtype;
             $data['class_id']               = $request->class_id;
             $data['feecategoryamount']      = Feeamount::where('fee_category_id', 1)->where('class_id', $request->class_id)->first();
             $data['students']               = Assingstudent::where(['year_id' => $request->year_id, 'class_id' => $request->class_id])->latest()->get();
-
-            return view('backend.student.monthlyFee.monthlyfeeajax', $data);
+            return view('backend.student.examFee.examfeeajax', $data);
         }
     }
 }

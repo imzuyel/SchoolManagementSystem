@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
-use App\Http\Controllers\Controller;
 use App\Models\Shift;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ShiftController extends Controller
 {
-
     public function index()
     {
         $data['shifts'] = Shift::latest()->get();

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\employee;
 
-use App\Http\Controllers\Controller;
 use App\Models\LeavePurpose;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LeavePruposeController extends Controller
 {
-
     public function index()
     {
         $data['leavepurposes'] = LeavePurpose::latest()->get();

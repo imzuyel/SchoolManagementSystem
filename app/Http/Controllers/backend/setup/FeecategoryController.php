@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
-use App\Http\Controllers\Controller;
 use App\Models\Feecategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FeecategoryController extends Controller
 {
-
     public function index()
     {
         $data['feecategories'] = Feecategory::latest()->get();

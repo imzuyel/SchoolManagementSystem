@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\student;
 
 use App\Models\User;
 use App\Models\Year;
@@ -17,7 +17,6 @@ use Intervention\Image\Facades\Image;
 
 class AssingstudentController extends Controller
 {
-
     public function index()
     {
 

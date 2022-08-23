@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\employee;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\EmployeePaySalary;
+use Illuminate\Http\Request;
 use App\Models\Employeeattendance;
 use App\Http\Controllers\Controller;
 
 class EmployeePaySalaryController extends Controller
 {
-
     public function index()
     {
         return view('backend.employee.paysalary.index');

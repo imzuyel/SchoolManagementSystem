@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\mark;
 
 use App\Models\Year;
 use App\Models\Examtype;

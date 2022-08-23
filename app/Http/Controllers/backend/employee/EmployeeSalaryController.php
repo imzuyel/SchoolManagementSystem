@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\employee;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\EmployeeSalary;
 use App\Http\Controllers\Controller;
-
 
 class EmployeeSalaryController extends Controller
 {

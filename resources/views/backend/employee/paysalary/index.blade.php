@@ -33,7 +33,7 @@
           <div class="col-md-8">
             <div class="form-group">
               <label class="col-form-label">Search Date</label>
-              <input type="month"
+              <input type="date"
                 class="form-control  @error('date') is-invalid @enderror"
                 name="date"
                 id="date"

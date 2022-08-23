@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\employee;
 
 use App\Models\User;
 use App\Models\LeavePurpose;
@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 
 class EmployeeLeaveController extends Controller
 {
-
     public function index()
     {
         $data['leaves']                     = EmployeeLeave::latest()->get();

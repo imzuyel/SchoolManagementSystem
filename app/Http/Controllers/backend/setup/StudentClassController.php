@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 class StudentClassController extends Controller
 {
-
     public function index()
     {
         $data['classes'] = StudentClass::latest()->get();

@@ -14,8 +14,7 @@
       new Noty({
         type: 'error',
         layout: 'topRight',
-        timeout: 89000,
-        closeWith: ['button'],
+        timeout: 3000,
         text: '{{ $error }}',
 
       }).show();

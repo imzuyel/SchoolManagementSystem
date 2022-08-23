@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
 use App\Models\Subject;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use App\Models\Assignsubject;
-use App\Models\Assingstudent;
 use App\Http\Controllers\Controller;
 
 class AssignsubjectController extends Controller
 {
-
     public function index()
     {
         $data['assingnsubjects'] = Assignsubject::select('class_id')->groupBy('class_id')->get();

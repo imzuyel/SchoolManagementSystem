@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
-use App\Http\Controllers\Controller;
 use App\Models\Examtype;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ExamtypeController extends Controller
 {

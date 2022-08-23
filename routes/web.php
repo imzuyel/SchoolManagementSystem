@@ -1,29 +1,31 @@
 <?php
 
+use App\Models\Grade;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\RollController;
 use App\Http\Controllers\backend\UserController;
-use App\Http\Controllers\backend\YearController;
-use App\Http\Controllers\backend\GroupController;
-use App\Http\Controllers\backend\ShiftController;
-use App\Http\Controllers\backend\ExamfeeController;
-use App\Http\Controllers\backend\SubjectController;
-use App\Http\Controllers\backend\EmployeeController;
-use App\Http\Controllers\backend\ExamtypeController;
-use App\Http\Controllers\backend\FeeamountController;
-use App\Http\Controllers\backend\MarkentryController;
-use App\Http\Controllers\backend\MonthlyfeeController;
-use App\Http\Controllers\backend\DesignationController;
-use App\Http\Controllers\backend\FeecategoryController;
-use App\Http\Controllers\backend\LeavePruposeController;
-use App\Http\Controllers\backend\StudentClassController;
-use App\Http\Controllers\backend\AssignsubjectController;
-use App\Http\Controllers\backend\AssingstudentController;
-use App\Http\Controllers\backend\EmployeeLeaveController;
-use App\Http\Controllers\backend\EmployeeSalaryController;
-use App\Http\Controllers\backend\RegistrationfeeController;
-use App\Http\Controllers\backend\EmployeePaySalaryController;
-use App\Http\Controllers\backend\EmployeeattendanceController;
+use App\Http\Controllers\backend\mark\GradeController;
+use App\Http\Controllers\backend\setup\YearController;
+use App\Http\Controllers\backend\setup\GroupController;
+use App\Http\Controllers\backend\setup\ShiftController;
+use App\Http\Controllers\backend\student\RollController;
+use App\Http\Controllers\backend\setup\SubjectController;
+use App\Http\Controllers\backend\mark\MarkentryController;
+use App\Http\Controllers\backend\setup\ExamtypeController;
+use App\Http\Controllers\backend\setup\FeeamountController;
+use App\Http\Controllers\backend\student\ExamfeeController;
+use App\Http\Controllers\backend\employee\EmployeeController;
+use App\Http\Controllers\backend\setup\DesignationController;
+use App\Http\Controllers\backend\setup\FeecategoryController;
+use App\Http\Controllers\backend\setup\StudentClassController;
+use App\Http\Controllers\backend\student\MonthlyfeeController;
+use App\Http\Controllers\backend\setup\AssignsubjectController;
+use App\Http\Controllers\backend\employee\LeavePruposeController;
+use App\Http\Controllers\backend\student\AssingstudentController;
+use App\Http\Controllers\backend\employee\EmployeeLeaveController;
+use App\Http\Controllers\backend\employee\EmployeeSalaryController;
+use App\Http\Controllers\backend\student\RegistrationfeeController;
+use App\Http\Controllers\backend\employee\EmployeePaySalaryController;
+use App\Http\Controllers\backend\employee\EmployeeattendanceController;
 
 Route::get('/', function () {
     return view('backend.home');
@@ -53,14 +55,13 @@ Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
     Route::resource('/assignsubject', AssignsubjectController::class);
     Route::resource('/designation', DesignationController::class);
 });
+
 Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::resource('/assingstudent', AssingstudentController::class);
     Route::post('/assing/search', [AssingstudentController::class, 'search'])->name('assingstudent.search');
-
     // Promotion
     Route::get('/promotion/{id}', [AssingstudentController::class, 'promotion'])->name('assingstudent.promotion');
     Route::post('/promotion/new/{id}', [AssingstudentController::class, 'promotionNew'])->name('assingstudent.promotionNew');
-
     // Assing student pdf
     Route::get('/pdf/{id}', [AssingstudentController::class, 'pdf'])->name('assingstudent.pdf');
 
@@ -92,12 +93,14 @@ Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
     Route::resource('/leave', EmployeeLeaveController::class);
     Route::resource('/attendance', EmployeeattendanceController::class);
 
+    // Employee Pay Salary
     Route::resource('/paysalary', EmployeePaySalaryController::class);
     Route::post('/monthly/salary/pay', [EmployeePaySalaryController::class, 'getEmployee']);
     Route::get('/monthly/salary/payslip/{employee_id}', [EmployeePaySalaryController::class, 'MonthlySalaryPayslip'])->name('monthly.salary.payslip');
 });
 
 Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
+    // Mark entry
     Route::get('/entry', [MarkentryController::class, 'index'])->name('entry.index');
     Route::post('/entry/get/class', [MarkentryController::class, 'getClass']);
     Route::post('/entry/student/get', [MarkentryController::class, 'markgenerateHere']);
@@ -105,4 +108,7 @@ Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
     Route::get('/entry/student/edit/get', [MarkentryController::class, 'editMark'])->name('entry.editMark');
     Route::post('/entry/student/get/edit', [MarkentryController::class, 'markeditHere']);
     Route::post('/entry/student/mark/update', [MarkentryController::class, 'update'])->name('entry.update');
+
+    // Grade
+    Route::resource('/grade', GradeController::class)->except('show');
 });

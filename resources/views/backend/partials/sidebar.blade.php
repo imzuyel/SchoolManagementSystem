@@ -46,7 +46,6 @@
         @endauth
       </ul>
     </li>
-
     <li class="menu-label">Setup</li>
     <li>
       <a class="has-arrow"
@@ -57,7 +56,7 @@
       </a>
       <ul class="{{ Request::is('setup/*') ? 'mm-show' : '' }}">
 
-        <li class="{{ Request::is('setup/class/*') ? 'mm-active' : '' }}">
+        <li class="{{ Request::is('setup/grade/*') ? 'mm-active' : '' }}">
           <a class="has-arrow"
             href="javascript:;">
             <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
@@ -314,6 +313,7 @@
             </div>
             <div class="menu-title">Entry</div>
           </a>
+        </li>
         <li class="{{ Request::is('mark/entry/student/*') ? 'mm-active' : '' }}">
           <a href="{{ route('mark.entry.editMark') }}">
             <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
@@ -322,8 +322,32 @@
           </a>
 
         </li>
+
+
+
+        <li class="{{ Request::is('mark/grade/*') ? 'mm-active' : '' }}">
+          <a class="has-arrow"
+            href="javascript:;">
+            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+            </div>
+            <div class="menu-title">Grade</div>
+          </a>
+          <ul class="{{ Request::is('mark/grade/*') ? 'mm-show' : '' }}">
+            <li class="{{ Request::is('mark/grade/*/edit') ? 'mm-active' : '' }}"> <a
+                href="{{ route('mark.grade.index') }}"><i class="bx bx-add-to-queue">
+                </i>Manage</a>
+            </li>
+            <li class="{{ Request::is('mark/grade/create') ? 'mm-active' : '' }}"> <a
+                href="{{ route('mark.grade.create') }}"><i class="bx bx-plus"></i>Add</a>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </li>
+
+
+
     <li class="menu-label">Employee</li>
     <li>
       <a class="has-arrow"

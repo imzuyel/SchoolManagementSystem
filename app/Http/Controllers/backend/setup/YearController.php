@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\backend\setup;
 
-use App\Http\Controllers\Controller;
 use App\Models\Year;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class YearController extends Controller
 {
-
     public function index()
     {
         $data['years'] = Year::latest()->get();
