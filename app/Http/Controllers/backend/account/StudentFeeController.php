@@ -16,16 +16,16 @@ class StudentFeeController extends Controller
 
     public function index()
     {
-        $data['studentfees'] = Studentfee::all();
+        $data['studentfees'] = Studentfee::where('status', 1)->latest()->get();
         return view('backend.account.studentfee.index', $data);
     }
 
 
     public function create()
     {
-        $data['years'] = Year::all();
+        $data['years'] = Year::latest()->get();
         $data['classes'] = StudentClass::all();
-        $data['fee_categories'] = Feecategory::all();
+        $data['fee_categories'] = Feecategory::latest()->get();
         return view('backend.account.studentfee.form', $data);
     }
 
@@ -76,50 +76,5 @@ class StudentFeeController extends Controller
             noty("Fee added saved", 'success');
             return to_route('account.studentfee.index');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Studentfee  $studentfee
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Studentfee $studentfee)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Studentfee  $studentfee
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Studentfee $studentfee)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Studentfee  $studentfee
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Studentfee $studentfee)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Studentfee  $studentfee
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Studentfee $studentfee)
-    {
-        //
     }
 }

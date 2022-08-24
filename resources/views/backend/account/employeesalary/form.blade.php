@@ -77,7 +77,7 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">Students</li>
+            aria-current="page">Employees</li>
         </ol>
       </nav>
     </div>
@@ -86,7 +86,7 @@
     <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
-          <h5>Search student</h5>
+          <h5>Search Employee</h5>
         </div>
       </div>
     </div>
@@ -95,67 +95,9 @@
 
       <div class="form-body">
         <div class="row d-flex justify-content-between align-items-center">
-          <div class="col-lg-3">
-            <div class="form-group ">
-              <label class="col-form-label">Year</label>
-              <select class="single-select @error('year_id') is-invalid @enderror"
-                name="year_id"
-                id="year_id">
-                @forelse ($years as $year)
-                  <option value="{{ $year->id }}">{{ $year->name }}</option>
-                @empty
-                @endforelse
-              </select>
-              @error('year_id')
-                <span class="text-danger"
-                  role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="form-group ">
-              <label class="col-form-label">Class</label>
-              <select class="single-select @error('class_id') is-invalid @enderror"
-                name="class_id"
-                id="class_id">
-                @forelse ($classes as $class)
-                  <option value="{{ $class->id }}">{{ $class->name }}</option>
-                @empty
-                @endforelse
-              </select>
-              @error('class_id')
-                <span class="text-danger"
-                  role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="form-group ">
-              <label class="col-form-label">Fee Category</label>
-              <select class="single-select @error('fee_category_id') is-invalid @enderror"
-                name="fee_category_id"
-                id="fee_category_id">
-                @forelse ($fee_categories as $fee_category)
-                  <option value="{{ $fee_category->id }}">{{ $fee_category->name }}</option>
-                @empty
-                @endforelse
-              </select>
-              @error('fee_category_id')
-                <span class="text-danger"
-                  role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-          </div>
-
-          <div class="col-md-3">
+          <div class="col-md-8">
             <div class="form-group">
-              <label class="col-form-label">Date</label>
+              <label class="col-form-label">Search Employee</label>
               <input type="date"
                 class="form-control  @error('date') is-invalid @enderror"
                 name="date"
@@ -169,18 +111,19 @@
               @enderror
             </div>
           </div>
+          <div class="pt-3 col-md-4 ">
 
-          <div class="pt-3 col-md-2 ">
-
-            <a class="btn btn-success studentFeeSearch"
+            <a class="btn btn-success EmployeeSalary"
               href="javascript:;">Search</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="appendStudentFee">
-    @include('backend.account.studentfee.addajax')
+  <div class="card radius-15"
+    id="appendFee">
+    @include('backend.account.employeesalary.addajax')
+
   </div>
 @endsection
 @push('js')

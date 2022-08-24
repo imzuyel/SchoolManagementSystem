@@ -351,5 +351,55 @@
         });
       });
 
+
+      //Exam Fee
+      $(".EmployeeSalary").click(function() {
+        var date = $("#date").val();
+        $.ajax({
+          type: "post",
+          url: "/account/employee/salary/get",
+          data: {
+            date: date,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+          },
+          success: function(resp) {
+            $("#appendFee").html(resp);
+          },
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
+
+      //Exam Fee
+      $(".ProfiteSearch").click(function() {
+        var start_date = $("#start_date").val();
+        var end_date = $("#end_date").val();
+
+        $.ajax({
+          type: "post",
+          url: "/report/profite/get",
+          data: {
+            start_date: start_date,
+            end_date: end_date,
+            "_token": "{{ csrf_token() }}",
+          },
+          beforeSend: function() {
+            $(".pace").removeClass("pace-inactive");
+          },
+          success: function(resp) {
+            $("#appendFee").html(resp);
+          },
+          complete: function() {
+            $(".pace").addClass("pace-inactive");
+          },
+        });
+      });
+
+
     });
   </script>

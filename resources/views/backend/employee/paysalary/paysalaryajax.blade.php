@@ -67,7 +67,7 @@
                       <span class="badge badge-danger">
                         {{ $absent }}</span>
                     </td>
-                    <td>{{ $totalsalary }}</td>
+                    <td>{{ round($totalsalary) }}</td>
                     <td>
                       <a class="btn btn-sm btn-success"
                         target="_blank"

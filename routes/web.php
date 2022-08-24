@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Models\Grade;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\mark\GradeController;
@@ -11,24 +11,26 @@ use App\Http\Controllers\backend\setup\ShiftController;
 use App\Http\Controllers\backend\student\RollController;
 use App\Http\Controllers\backend\setup\SubjectController;
 use App\Http\Controllers\backend\mark\MarkentryController;
+use App\Http\Controllers\backend\report\ProfiteController;
 use App\Http\Controllers\backend\setup\ExamtypeController;
 use App\Http\Controllers\backend\setup\FeeamountController;
 use App\Http\Controllers\backend\student\ExamfeeController;
+use App\Http\Controllers\backend\account\OthercostController;
 use App\Http\Controllers\backend\employee\EmployeeController;
 use App\Http\Controllers\backend\setup\DesignationController;
 use App\Http\Controllers\backend\setup\FeecategoryController;
+use App\Http\Controllers\backend\account\StudentFeeController;
 use App\Http\Controllers\backend\setup\StudentClassController;
 use App\Http\Controllers\backend\student\MonthlyfeeController;
-use App\Http\Controllers\backend\account\StudentFeeController;
 use App\Http\Controllers\backend\setup\AssignsubjectController;
 use App\Http\Controllers\backend\employee\LeavePruposeController;
 use App\Http\Controllers\backend\student\AssingstudentController;
 use App\Http\Controllers\backend\employee\EmployeeLeaveController;
+use App\Http\Controllers\backend\account\AccountEmployeeController;
 use App\Http\Controllers\backend\employee\EmployeeSalaryController;
 use App\Http\Controllers\backend\student\RegistrationfeeController;
 use App\Http\Controllers\backend\employee\EmployeePaySalaryController;
 use App\Http\Controllers\backend\employee\EmployeeattendanceController;
-
 
 Route::get('/', function () {
     return view('backend.home');
@@ -47,16 +49,16 @@ Route::post('/user/profile/update', [UserController::class, 'userProfilrUpdate']
 Route::post('/user/profile/password/update', [UserController::class, 'userProfilrPasswordUpdate'])->name('user.profilepasswordupdate');
 
 Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
-    Route::resource('/class', StudentClassController::class);
-    Route::resource('/year', YearController::class);
-    Route::resource('/group', GroupController::class);
-    Route::resource('/shift', ShiftController::class);
-    Route::resource('/feecategory', FeecategoryController::class);
-    Route::resource('/feeamount', FeeamountController::class);
-    Route::resource('/examtype', ExamtypeController::class);
-    Route::resource('/subject', SubjectController::class);
-    Route::resource('/assignsubject', AssignsubjectController::class);
-    Route::resource('/designation', DesignationController::class);
+    Route::resource('/class', StudentClassController::class)->except('show');
+    Route::resource('/year', YearController::class)->except('show');
+    Route::resource('/group', GroupController::class)->except('show');
+    Route::resource('/shift', ShiftController::class)->except('show');
+    Route::resource('/feecategory', FeecategoryController::class)->except('show');
+    Route::resource('/feeamount', FeeamountController::class)->except('show');
+    Route::resource('/examtype', ExamtypeController::class)->except('show');
+    Route::resource('/subject', SubjectController::class)->except('show');
+    Route::resource('/assignsubject', AssignsubjectController::class)->except('show');
+    Route::resource('/designation', DesignationController::class)->except('show');
 });
 
 Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
@@ -117,8 +119,15 @@ Route::group(['prefix' => 'mark', 'as' => 'mark.'], function () {
 });
 
 Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
-    // Mark entry
-    // Grade
-    Route::resource('/studentfee', StudentFeeController::class)->except('show');
+    Route::resource('/studentfee', StudentFeeController::class)->only('index', 'create', 'store');
     Route::post('/studentfee/get', [StudentFeeController::class, 'getData']);
+
+    Route::resource('/employeesalary', AccountEmployeeController::class)->only('index', 'create', 'store');
+    Route::post('/employee/salary/get', [AccountEmployeeController::class, 'getEmployee']);
+
+    Route::resource('/othercost', OthercostController::class)->except('show');
+});
+Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
+    Route::get('/profite', [ProfiteController::class, 'index'])->name('profite.index');
+    Route::post('/profite/get', [ProfiteController::class, 'profiteGet']);
 });

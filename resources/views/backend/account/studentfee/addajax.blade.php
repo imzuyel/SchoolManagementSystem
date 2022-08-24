@@ -94,6 +94,7 @@
                       <input class="hidden radio-label unpay"
                         type="radio"
                         value="unpay"
+                        name="pay_status{{ $key }}"
                         id="unpay{{ $key }}" /><label class="button-label"
                         for="unpay{{ $key }}">
                         <h1>unpay</h1>

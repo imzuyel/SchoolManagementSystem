@@ -39,7 +39,7 @@
                 <a class="m-1 btn btn-primary"
                   href="{{ route('employee.register.index') }}"
                   data-toggle="tooltip"
-                  title="Back employees &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Back employees &#9194;"><i class="bx bx-rewind"></i></a>
               </div>
             </div>
           </div>

@@ -447,38 +447,80 @@
 
 
     <li class="menu-label">Account Management</li>
-    <li>
+
+    <li class="{{ Request::is('acount/studentfee/*') ? 'mm-active' : '' }}">
       <a class="has-arrow"
         href="javascript:;">
-        <div class="parent-icon icon-color-11"><i class="bx bx-menu"></i>
+        <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
         </div>
-        <div class="menu-title">Student </div>
+        <div class="menu-title">Student Fee</div>
       </a>
-      <ul class="{{ Request::is('acount/*') ? 'mm-show' : '' }}">
-
-        <li class="{{ Request::is('acount/studentfee/*') ? 'mm-active' : '' }}">
-          <a class="has-arrow"
-            href="javascript:;">
-            <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
-            </div>
-            <div class="menu-title">Fee</div>
-          </a>
-          <ul class="{{ Request::is('account/studentfee/*') ? 'mm-show' : '' }}">
-            <li class="{{ Request::is('account/studentfee/*/edit') ? 'mm-active' : '' }}"> <a
-                href="{{ route('account.studentfee.index') }}"><i class="bx bx-add-to-queue">
-                </i>Manage</a>
-            </li>
-            <li class="{{ Request::is('account/studentfee/create') ? 'mm-active' : '' }}"> <a
-                href="{{ route('account.studentfee.create') }}"><i class="bx bx-plus"></i>Add</a>
-            </li>
-          </ul>
+      <ul class="{{ Request::is('account/studentfee/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('account/studentfee/*/edit') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.studentfee.index') }}"><i class="bx bx-add-to-queue">
+            </i>Manage</a>
         </li>
-
+        <li class="{{ Request::is('account/studentfee/create') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.studentfee.create') }}"><i class="bx bx-plus"></i>Add</a>
+        </li>
       </ul>
     </li>
 
 
 
+    <li class="{{ Request::is('acount/employeesalary/*') ? 'mm-active' : '' }}">
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+        </div>
+        <div class="menu-title">Employee Salary</div>
+      </a>
+      <ul class="{{ Request::is('account/employeesalary/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('account/employeesalary/*/edit') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.employeesalary.index') }}"><i class="bx bx-add-to-queue">
+            </i>Manage</a>
+        </li>
+        <li class="{{ Request::is('account/employeesalary/create') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.employeesalary.create') }}"><i class="bx bx-plus"></i>Add</a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li class="{{ Request::is('acount/othercost/*') ? 'mm-active' : '' }}">
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+        </div>
+        <div class="menu-title">Cost</div>
+      </a>
+      <ul class="{{ Request::is('account/othercost/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('account/othercost/*/edit') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.othercost.index') }}"><i class="bx bx-add-to-queue">
+            </i>Manage</a>
+        </li>
+        <li class="{{ Request::is('account/othercost/create') ? 'mm-active' : '' }}"> <a
+            href="{{ route('account.othercost.create') }}"><i class="bx bx-plus"></i>Add</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-label">Report Management</li>
+    <li class="{{ Request::is('report/*') ? 'mm-active' : '' }}">
+      <a class="has-arrow"
+        href="javascript:;">
+        <div class=" icon-color-1"> <i class="bx bx-comment-edit"></i>
+        </div>
+        <div class="menu-title">Report</div>
+      </a>
+      <ul class="{{ Request::is('report/profite/*') ? 'mm-show' : '' }}">
+        <li class="{{ Request::is('report/profite/*') ? 'mm-active' : '' }}"> <a
+            href="{{ route('report.profite.index') }}"><i class="bx bx-add-to-queue">
+            </i>Manage</a>
+        </li>
+
+      </ul>
+    </li>
 
 
   </ul>
