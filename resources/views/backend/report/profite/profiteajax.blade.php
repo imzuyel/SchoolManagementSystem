@@ -28,7 +28,6 @@
            <tbody>
 
              <tr>
-
                <td>
                  {{ $student_fee }}
                </td>
@@ -39,11 +38,12 @@
                <td>
                  <a class="btn btn-sm btn-success"
                    target="_blank"
-                   href=""
+                   href="{{ route('report.profite.pdf', ['start_date' => $start_date, 'end_date' => $end_date]) }}"
                    data-toggle="tooltip"
                    title="Pay &#128221">Fee Slip
                  </a>
                </td>
+
              </tr>
 
            </tbody>

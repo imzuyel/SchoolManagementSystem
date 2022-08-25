@@ -31,7 +31,7 @@
   <div class="wrapper">
     <div class="section-authentication-register d-flex align-items-center justify-content-center">
       <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
+        <div class="mx-auto col-12 col-lg-10">
           <div class="card radius-15">
             <div class="row no-gutters">
               <div class="col-lg-6">
@@ -42,40 +42,40 @@
                       alt="">
                     <h3 class="mt-4 font-weight-bold">Create an Account</h3>
                   </div>
-                  <div class="input-group shadow-sm rounded mt-5">
+                  <div class="mt-5 rounded shadow-sm input-group">
                     <div class="input-group-prepend"> <span
-                        class="input-group-text bg-transparent border-0 cursor-pointer"><img
+                        class="bg-transparent border-0 cursor-pointer input-group-text"><img
                           src="{{ asset('assets/images/icons/search.svg') }}"
                           alt=""
                           width="16"></span>
                     </div>
                     <a href=""
-                      class="form-control  border-0 "
+                      class="border-0 form-control "
                       value="Log in with google">Log in
                       with
                       google</a>
                   </div>
-                  <div class="input-group shadow-sm rounded mt-5">
+                  <div class="mt-5 rounded shadow-sm input-group">
                     <div class="input-group-prepend"> <span
-                        class="input-group-text bg-transparent border-0 cursor-pointer"><img
+                        class="bg-transparent border-0 cursor-pointer input-group-text"><img
                           src="{{ asset('assets/images/icons/github.png') }}"
                           alt=""
                           width="16"></span>
                     </div>
                     <a href=""
-                      class="form-control  border-0 "
+                      class="border-0 form-control "
                       value="Log in with google">Log in
                       with
                       github</a>
                   </div>
-                  <div class="login-separater text-center"> <span>OR REGISTER WITH EMAIL</span>
+                  <div class="text-center login-separater"> <span>OR REGISTER WITH EMAIL</span>
                     <hr />
                   </div>
                   <form method="POST"
                     action="{{ route('register') }}"
                     method="post">
                     @csrf
-                    <div class="form-group  mt-4">
+                    <div class="mt-4 form-group">
                       <label>Full Name</label>
                       <input type="text"
                         name="name"
@@ -121,7 +121,7 @@
                           placeholder="Password"
                           type="password">
                         <div class="input-group-append"> <a href="javascript:;"
-                            class="input-group-text bg-transparent border-left-0"><i class='bx bx-hide'></i></a>
+                            class="bg-transparent input-group-text border-left-0"><i class='bx bx-hide'></i></a>
                         </div>
                         @error('password')
                           <span class="invalid-feedback"
@@ -152,7 +152,7 @@
                           Terms & Conditions</label>
                       </div>
                     </div>
-                    <div class="btn-group mt-3 w-100">
+                    <div class="mt-3 btn-group w-100">
                       <button type="submit"
                         class="btn btn-primary btn-block">Register</button>
                       <button type="submit"
@@ -161,7 +161,7 @@
                     </div>
                   </form>
                   <hr />
-                  <div class="text-center mt-4">
+                  <div class="mt-4 text-center">
                     <p class="mb-0">Already have an account? <a href="{{ route('login') }}">Login</a>
                     </p>
                   </div>
@@ -198,7 +198,7 @@
       });
     });
   </script>
-  @include('backend.partials.toastr')
+  @include('backend.partials.noty')
 </body>
 
 </html>

@@ -2,7 +2,7 @@
   data-simplebar="true">
   <div class="sidebar-header">
     <div class="">
-      <img src="{{ asset('assets/images/logo-icon.png') }}"
+      <img src="{{ asset('images/icon.png') }}"
         class="logo-icon-2"
         alt="" />
     </div>

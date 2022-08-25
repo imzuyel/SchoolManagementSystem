@@ -40,7 +40,7 @@
                 <p class="user-name mb-0">Zuyel Rana</p>
                 <p class="designattion mb-0">Available</p>
               </div>
-              <img src="{{ asset('/') }}assets/images/avatars/avatar-1.png"
+              <img src="{{ asset('/') }}images/zuyel.jpg"
                 class="user-img"
                 alt="user avatar">
             </div>

@@ -32,7 +32,7 @@
   <div class="wrapper">
     <div class="section-authentication-login d-flex align-items-center justify-content-center">
       <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
+        <div class="mx-auto col-12 col-lg-10">
           <div class="card radius-15">
             <div class="row no-gutters">
               <div class="col-lg-6">
@@ -43,38 +43,38 @@
                       alt="">
                     <h3 class="mt-4 font-weight-bold">Welcome Back</h3>
                   </div>
-                  <div class="input-group shadow-sm rounded mt-5">
+                  <div class="mt-5 rounded shadow-sm input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-transparent border-0 cursor-pointer">
+                      <span class="bg-transparent border-0 cursor-pointer input-group-text">
                         <img src="{{ asset('assets/images/icons/search.svg') }}"
                           alt=""
                           width="16">
                       </span>
                     </div>
                     <a href=""
-                      class="form-control  border-0 "
+                      class="border-0 form-control "
                       value="Log in with google">Log in
                       with google</a>
                   </div>
-                  <div class="input-group shadow-sm rounded mt-5">
+                  <div class="mt-5 rounded shadow-sm input-group">
                     <div class="input-group-prepend"> <span
-                        class="input-group-text bg-transparent border-0 cursor-pointer"><img
+                        class="bg-transparent border-0 cursor-pointer input-group-text"><img
                           src="{{ asset('assets/images/icons/github.png') }}"
                           alt=""
                           width="16"></span>
                     </div>
                     <a href=""
-                      class="form-control  border-0 "
+                      class="border-0 form-control "
                       value="Log in with google">Log in
                       with github</a>
                   </div>
-                  <div class="login-separater text-center"> <span>OR LOGIN WITH EMAIL</span>
+                  <div class="text-center login-separater"> <span>OR LOGIN WITH EMAIL</span>
                     <hr />
                   </div>
                   <form action="{{ route('login') }}"
                     method="post">
                     @csrf
-                    <div class="form-group mt-4">
+                    <div class="mt-4 form-group">
                       <label>Email Address</label>
                       <input type="email"
                         class="form-control @error('email') is-invalid @enderror"
@@ -101,7 +101,7 @@
                           name="password"
                           placeholder="Enter Password">
                         <a href="javascript:;"
-                          class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+                          class="bg-transparent input-group-text"><i class="bx bx-hide"></i></a>
                         @error('password')
                           <span class="invalid-feedback"
                             role="alert">
@@ -124,12 +124,12 @@
                         </div>
                       </div>
                       @if (Route::has('password.request'))
-                        <div class="form-group col text-right"> <a href="{{ route('password.request') }}"><i
-                              class='bx bxs-key mr-2'></i>Forget Password?</a>
+                        <div class="text-right form-group col"> <a href="{{ route('password.request') }}"><i
+                              class='mr-2 bx bxs-key'></i>Forget Password?</a>
                         </div>
                       @endif
                     </div>
-                    <div class="btn-group mt-3 w-100">
+                    <div class="mt-3 btn-group w-100">
                       <button type="submit"
                         class="btn btn-primary btn-block">Log In</button>
                       <button type="submit"
@@ -161,7 +161,7 @@
 
   <!-- jQuery -->
   <script src="assets/js/jquery.min.js"></script>
-  @include('backend.partials.toastr')
+  @include('backend.partials.noty')
 
   <script>
     $(document).ready(function() {

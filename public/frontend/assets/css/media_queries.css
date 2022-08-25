@@ -1,0 +1,436 @@
+@media (min-width: 375px) {
+
+  /* ------- Variable ------- */
+
+  :root {
+    --fs-1: 50px;
+    --fs-2: 45px;
+    --fs-7: 18px;
+    --px: 30px;
+  }
+
+
+  .section-subtitle {
+    font-size: var(--fs-7);
+  }
+
+  /* --------- Home --------- */
+  .home-right .icon-1 {
+    top: 250px;
+  }
+
+  .home-right .icon-2 {
+    display: block;
+    top: 370px;
+    right: 50px;
+  }
+
+  .home-right .icon-3 {
+    display: block;
+    top: 450px;
+    left: 0;
+  }
+
+  .home-right .icon-4 {
+    width: 60px;
+    top: 150px;
+    right: 50px;
+  }
+
+  /* --------- About -------- */
+
+  .about-left .icon-1 {
+    top: 150px;
+  }
+
+  .about-left .icon-2 {
+    display: block;
+    top: 270px;
+    right: 0;
+  }
+
+}
+
+@media (min-width: 575px) {
+
+  /* ------- Variable ------- */
+  :root {
+    --px: 40px;
+  }
+
+
+  /* --------- Home --------- */
+  .home .shape-1 img {
+    width: 100px;
+  }
+
+  .home .shape-3 img {
+    width: 250px;
+  }
+
+
+
+  /* --------- About -------- */
+  .about-left .icon-1 {
+    top: 200px;
+  }
+
+  .about-left .icon-2 {
+    top: 350px;
+  }
+
+
+
+  /* --------- Event -------- */
+  .event .play {
+    right: -20px;
+  }
+
+  .event-card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .event-card .content-left {
+    width: 100px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding-right: 15px;
+    margin-right: 25px;
+    box-shadow: 1px 0 0 0 var(--light-gray);
+  }
+
+  .event .schedule {
+    justify-content: start;
+    margin-bottom: 5px;
+  }
+
+  .event-card .event-name {
+    text-align: left;
+  }
+
+  /* -------- Contact ------- */
+  .contact h2 {
+    font-size: 37px;
+  }
+
+}
+
+@media (min-width: 767px) {
+
+  /* ------- Variable ------- */
+  :root {
+
+    --fs-1: 60px;
+    --fs-2: 50px;
+    --fs-7: 20px;
+    --px: 60px;
+  }
+
+
+
+
+  /*  CATEGORY, COURSE, INSTRUCTOR, BLOG, FOOTER  */
+
+  .category .course-item-group,
+  .course-grid,
+  .instructor-grid,
+  .blog-grid,
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* --------- Event -------- */
+
+  .event .play {
+    right: -100px;
+  }
+
+  /* -------- Contact ------- */
+  .contact-card {
+    padding: 40px 60px;
+  }
+
+}
+
+
+
+
+
+@media (min-width: 850px) {
+
+  /* ------- Variable ------- */
+  :root {
+    --px: 140px;
+  }
+
+}
+
+
+
+
+
+@media (min-width: 992px) {
+
+  /* ------- Variable ------- */
+  :root {
+
+    --fs-5: 16px;
+    --px: 30px;
+    --py: 120px;
+
+  }
+
+
+
+  /* -------- Header -------- */
+
+  .navbar {
+    padding: 20px var(--px);
+  }
+
+  .navbar-nav {
+    background: transparent;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-item:not(:last-child) a {
+    border-bottom: none;
+  }
+
+  .nav-toggle-btn {
+    display: none;
+  }
+
+  .navbar .btn {
+    display: block;
+  }
+
+
+
+  /* --------- Home --------- */
+
+  .home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .home::before {
+    top: -100px;
+    left: -300px;
+  }
+
+  .home::after {
+    top: 0;
+  }
+
+  .home-left {
+    margin-bottom: 0;
+  }
+
+  .home .section-subtitle,
+  .main-heading,
+  .home .section-text {
+    text-align: left;
+  }
+
+  .home .section-text {
+    margin: 0 0 30px;
+  }
+
+  .home-btn-group {
+    justify-content: start;
+  }
+
+
+
+  /* --------- About -------- */
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 40px;
+  }
+
+  .about-left {
+    margin-left: -70px;
+  }
+
+  .about-left img {
+    max-width: unset;
+  }
+
+  .about-right {
+    padding-top: 0;
+  }
+
+
+
+  /* -------- Courses ------- */
+  .course {
+    position: relative;
+  }
+
+  .course .section-subtitle,
+  .course .section-title {
+    max-width: 600px;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 0;
+  }
+
+  .course .btn-primary {
+    position: absolute;
+    top: 130px;
+    right: var(--px);
+  }
+
+
+
+  /* --------- Event -------- */
+  .event {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .event-left {
+    margin-bottom: 0;
+  }
+
+  .event .play {
+    right: -10px;
+  }
+
+
+
+  /* ------- Features ------- */
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .features-right {
+    height: auto;
+  }
+
+
+
+  /* ----- Testimonials ----- */
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+
+
+  /* --------- Blog --------- */
+
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+
+  /* -------- Contact ------- */
+
+  .contact-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-card h2 {
+    text-align: left;
+  }
+
+  .contact .btn-primary {
+    justify-self: end;
+    align-self: center;
+  }
+
+
+
+  /* -------- Footer -------- */
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+  }
+
+}
+
+
+
+
+
+@media (min-width: 1200px) {
+
+  /* ------- Variable ------- */
+  :root {
+
+    --fs-1: 70px;
+    --fs-2: 55px;
+    --fs-3: 40px;
+    --fs-4: 25px;
+    --fs-7: 22px;
+
+    --px: 120px;
+
+  }
+
+
+
+  /* --------- Home --------- */
+  .home-left {
+    padding-bottom: var(--py);
+  }
+
+  .home .section-text {
+    font-size: 18px;
+  }
+
+
+  /* ------- Category ------- */
+
+  .category .course-item-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+
+  /* --------- Event -------- */
+  .event {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+
+  /* ------ Instractor ------ */
+  .instructor-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+
+  /* -------- Contact ------- */
+  .contact-card h2 {
+    font-size: 45px;
+  }
+
+}
