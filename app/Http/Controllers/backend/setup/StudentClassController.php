@@ -10,7 +10,7 @@ class StudentClassController extends Controller
 {
     public function index()
     {
-        $data['classes'] = StudentClass::latest()->get();
+        $data['classes'] = StudentClass::all();
         return view('backend.setup.class.index', $data);
     }
 
@@ -47,7 +47,7 @@ class StudentClassController extends Controller
     {
         $class = StudentClass::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|string|unique:student_classes,name,' . $class->id
+            'name'                  => 'required|string|unique:student_classes,name,' . $class->id
         ]);
         $class->update([
             'name'                  => $request->name,
@@ -62,7 +62,7 @@ class StudentClassController extends Controller
     {
         $class = StudentClass::findOrFail($id);
         $class->delete();
-        noty('Class deleted successfully', 'error');
+        noty('Class deleted successfully', 'warning');
         return to_route('setup.class.index');
     }
 }

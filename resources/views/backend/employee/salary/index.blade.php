@@ -83,7 +83,7 @@
                     <a class="btn btn-sm btn-facebook"
                       href="{{ route('employee.salary.show', $employee->id) }}"
                       data-toggle="tooltip"
-                      title="Details &#128221"><i class="fadeIn animated bx bx-archive"></i>
+                      title="Details &#128221"><i class="fadeIn animated bx bx-show-alt"></i>
                     </a>
                   </td>
 

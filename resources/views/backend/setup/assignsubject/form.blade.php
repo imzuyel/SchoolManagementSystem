@@ -4,16 +4,16 @@
 @endsection
 
 @section('content')
-  <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
-    <div class="breadcrumb-title pr-3">Dashboard</div>
+  <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
+    <div class="pr-3 breadcrumb-title">Dashboard</div>
     <div class="pl-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0">
+        <ol class="p-0 mb-0 breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
             aria-current="page">
-            {{ isset($assignsubject->id) ? 'Update Assign Subject' : 'Create Assign Subject' }}</li>
+            {{ isset($assignsubject->id) ? 'Update Assign Subject' : 'Add Assign Subject' }}</li>
         </ol>
       </nav>
     </div>
@@ -28,17 +28,17 @@
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card radius-15 border-lg-top-info">
-          <div class="card-header border-bottom-0 mb-4">
+          <div class="mb-4 card-header border-bottom-0">
             <div class="d-flex align-items-center">
               <div>
-                <h5 class="mb-lg-0">{{ isset($assignsubject->id) ? 'Update Fee Category' : 'Create Fee Category' }}</h5>
+                <h5 class="mb-lg-0">{{ isset($assignsubject->id) ? 'Update Assign Subject' : 'Add Assign Subject' }}</h5>
               </div>
               <div class="ml-auto">
 
-                <a class="btn btn-primary m-1"
+                <a class="m-1 btn btn-primary"
                   href="{{ route('setup.assignsubject.index') }}"
                   data-toggle="tooltip"
-                  title="Back to all assignsubjects &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Manage Assign Subjects &#9194;"><i class="bx bx-rewind"></i></a>
               </div>
             </div>
           </div>
@@ -121,14 +121,14 @@
                   </div>
                 </div>
                 <div class="col-md-2 d-flex justify-content=-center align-items-center pt-2">
-                  <span class="bx bx-plus text-center btn btn-success addeventmore"></span>
+                  <span class="text-center bx bx-plus btn btn-success addeventmore"></span>
                 </div>
               </div>
             </div>
             <div class="float-right">
               <div class="btn-group">
                 <button type="submit"
-                  class="btn btn-primary px-4"
+                  class="px-4 btn btn-primary"
                   data-toggle="tooltip"
                   title="Save to database &#128190;"> <i class="bx bx-save"></i>Save</button>
               </div>
@@ -148,7 +148,7 @@
 
           <div class="col-md-3">
             <div class="form-group">
-              <label>Student subject</label>
+              <label>Student Subject</label>
               <select class="form-control"
                 id="subject-select"
                 name="subject_id[]">
@@ -161,7 +161,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label>Full mark</label>
+              <label>Full Mark</label>
               <input type="text"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
                 class="form-control  @error('full_mark') is-invalid @enderror"
@@ -177,7 +177,7 @@
           </div>
           <div class="col-md-2">
             <div class="form-group">
-              <label> Pass mark</label>
+              <label> Pass Mark</label>
               <input type="text"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
                 class="form-control  @error('pass_mark') is-invalid @enderror"
@@ -193,7 +193,7 @@
           </div>
           <div class="col-md-2">
             <div class="form-group">
-              <label> Subjective mark</label>
+              <label> Subjective Mark</label>
               <input type="text"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
                 class="form-control  @error('subjective_mark') is-invalid @enderror"
@@ -208,7 +208,7 @@
             </div>
           </div>
           <div class="col-md-2 d-flex justify-content=-center align-items-center pt-2">
-            <span class="bx bx-minus text-center btn btn-danger removeeventmore"></span>
+            <span class="text-center bx bx-minus btn btn-danger removeeventmore"></span>
           </div>
         </div>
 

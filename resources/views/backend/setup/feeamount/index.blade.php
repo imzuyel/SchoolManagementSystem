@@ -1,46 +1,45 @@
 @extends('backend.layouts')
 @section('title')
-  All Fee amount
+  All Fee Amount
 @endsection
 
 @section('content')
-  <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
-    <div class="breadcrumb-title pr-3">Dashboard</div>
+  <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
+    <div class="pr-3 breadcrumb-title">Dashboard</div>
     <div class="pl-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0">
+        <ol class="p-0 mb-0 breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">Fee amount</li>
+            aria-current="page">Fee Amount</li>
         </ol>
       </nav>
     </div>
   </div>
   <div class="card border-lg-top-primary radius-15">
-    <div class="card-header border-bottom-0 mb-4">
+    <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
           <h5>Manage fee amount</h5>
         </div>
         <div class="ml-auto">
-          <a class="btn btn-primary px-3"
+          <a class="px-3 btn btn-primary"
             href="{{ route('setup.feeamount.create') }}"
             data-toggle="tooltip"
-            title="Add new feeamount &#9989"><i class="bx bx-plus mr-1"></i>Add</a>
+            title="Add Fee Amount &#9989"><i class="mr-1 bx bx-plus"></i></a>
         </div>
       </div>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table id="example"
-          class="table table-striped table-bordered text-center table-hover">
+          class="table text-center table-striped table-bordered table-hover">
           @if (count($feeamounts) > 0)
             <thead>
               <tr>
                 <th>#</th>
                 <th>Fee Category</th>
-
                 <th>Action</th>
               </tr>
             </thead>

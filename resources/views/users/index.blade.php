@@ -28,7 +28,7 @@
           <a class="px-3 btn btn-primary"
             href="{{ route('user.create') }}"
             data-toggle="tooltip"
-            title="Add new User &#9989"><i class="mr-1 bx bx-plus"></i>Add</a>
+            title="Add New User &#9989"><i class="mr-1 bx bx-plus"></i></a>
         </div>
       </div>
     </div>
@@ -45,7 +45,6 @@
                 <th>Type</th>
                 <th>Email</th>
                 <th>Code</th>
-                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -69,17 +68,6 @@
                 <td>{{ $user->user_type }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->code }}</td>
-                <td>
-                  @if ($user->status)
-                    <span class="rounded badge badge-info "
-                      data-toggle="tooltip"
-                      title="User status is true &#128077">Active</span>
-                  @else
-                    <span class="badge badge-danger"
-                      data-toggle="tooltip"
-                      title="User status is false &#128078">Inactive</span>
-                  @endif
-                </td>
                 <td>
                   <a class="btn btn-sm btn-success"
                     href="{{ route('user.edit', $user->id) }}"

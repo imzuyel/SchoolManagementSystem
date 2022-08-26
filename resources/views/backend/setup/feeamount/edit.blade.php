@@ -1,14 +1,14 @@
 @extends('backend.layouts')
 @section('title')
-  Fee amount edit
+  Update Fee Amount Category
 @endsection
 
 @section('content')
-  <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
-    <div class="breadcrumb-title pr-3">Dashboard</div>
+  <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
+    <div class="pr-3 breadcrumb-title">Dashboard</div>
     <div class="pl-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0">
+        <ol class="p-0 mb-0 breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
@@ -26,17 +26,17 @@
     <div class="row">
       <div class="col-12 col-lg-12">
         <div class="card radius-15 border-lg-top-info">
-          <div class="card-header border-bottom-0 mb-4">
+          <div class="mb-4 card-header border-bottom-0">
             <div class="d-flex align-items-center">
               <div>
-                <h5 class="mb-lg-0">Update Fee Category</h5>
+                <h5 class="mb-lg-0">Update Fee Amount Category</h5>
               </div>
               <div class="ml-auto">
 
-                <a class="btn btn-primary m-1"
+                <a class="m-1 btn btn-primary"
                   href="{{ route('setup.feeamount.index') }}"
                   data-toggle="tooltip"
-                  title="Back to all feeamounts &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Manage Fee Amount &#9194;"><i class="bx bx-rewind"></i></a>
               </div>
             </div>
           </div>
@@ -93,11 +93,11 @@
                   </div>
                   @if ($loop->first)
                     <div class="col-md-2 d-flex justify-content=-center align-items-center pt-2">
-                      <span class="bx bx-plus text-center btn btn-success addeventmore"></span>
+                      <span class="text-center bx bx-plus btn btn-success addeventmore"></span>
                     </div>
                   @else
                     <div class="col-md-2 d-flex justify-content=-center align-items-center pt-2">
-                      <span class="bx bx-minus text-center btn btn-danger removeeventmore"></span>
+                      <span class="text-center bx bx-minus btn btn-danger removeeventmore"></span>
                     </div>
                   @endif
                 </div>
@@ -106,7 +106,7 @@
             <div class="float-right">
               <div class="btn-group">
                 <button type="submit"
-                  class="btn btn-primary px-2"
+                  class="px-2 btn btn-primary"
                   data-toggle="tooltip"
                   title="Update These data &#128190;"><i class="bx bx-task"></i> Update</button>
               </div>
@@ -150,7 +150,7 @@
             </div>
           </div>
           <div class="col-md-2 d-flex justify-content=-center align-items-center pt-2">
-            <span class="bx bx-minus text-center btn btn-danger removeeventmore"></span>
+            <span class="text-center bx bx-minus btn btn-danger removeeventmore"></span>
           </div>
         </div>
       </div>

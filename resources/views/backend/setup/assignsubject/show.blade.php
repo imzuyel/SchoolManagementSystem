@@ -1,13 +1,13 @@
 @extends('backend.layouts')
 @section('title')
-  Details {{ $showdata[0]->get_class->name }} amount
+  Details {{ $showdata[0]->get_class->name }} Subject
 @endsection
 @section('content')
-  <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
-    <div class="breadcrumb-title pr-3">Dashboard</div>
+  <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
+    <div class="pr-3 breadcrumb-title">Dashboard</div>
     <div class="pl-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0">
+        <ol class="p-0 mb-0 breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
@@ -17,23 +17,23 @@
     </div>
   </div>
   <div class="card border-lg-top-primary radius-15">
-    <div class="card-header border-bottom-0 mb-4">
+    <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
           <h5>Class <code>{{ $showdata[0]->get_class->name }}</code> subject</h5>
         </div>
         <div class="ml-auto">
-          <a class="btn btn-primary m-1"
+          <a class="m-1 btn btn-primary"
             href="{{ route('setup.assignsubject.index') }}"
             data-toggle="tooltip"
-            title="Back to Assign Subjects &#9194;"><i class="bx bx-rewind"></i>Back</a>
+            title="Manage Assign Subjects &#9194;"><i class="bx bx-rewind"></i></a>
         </div>
       </div>
     </div>
     <div class="card-body">
       <div class="table-responsive">
         <table id="example"
-          class="table table-striped table-bordered text-center table-hover">
+          class="table text-center table-striped table-bordered table-hover">
           @if (count($showdata) > 0)
             <thead>
               <tr>

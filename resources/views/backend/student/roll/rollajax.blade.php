@@ -10,7 +10,7 @@
       value={{ $class_id }}>
 
     <table id="example"
-      class=" table table-striped table-bordered text-center table-hover">
+      class="table text-center table-striped table-bordered table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -30,7 +30,7 @@
             <td>{{ $key + 1 }}</td>
             <td>{{ $student->student->id_no }}</td>
             <td>
-              <div class="media align-items-center mt-3 ">
+              <div class="mt-3 media align-items-center ">
                 <img
                   @if (file_exists($student->student->profile_photo_path)) src="/{{ $student->student->profile_photo_path }}"
                 @else
@@ -41,14 +41,14 @@
                   height="45">
                 <div class="media-body"
                   style="flex: 0.5;">
-
-                  <p class="font-weight-bold mb-0 ml-2">{{ $student->student->name }}</p>
+                  <p class="mb-0 ml-2 font-weight-bold">{{ $student->student->name }}</p>
                 </div>
               </div>
             </td>
             <td>{{ $student->student->gender }}</td>
             <td>{{ $student->student->father_name }}</td>
             <td><input type="text"
+                class="form-control"
                 value="{{ $student->roll }}"
                 name="roll[]"></td>
           </tr>
@@ -57,7 +57,7 @@
     </table>
     <div class="float-right">
       <button type="submit"
-        class="btn btn-primary px-4"
+        class="px-4 btn btn-primary"
         data-toggle="tooltip"
         title="Save to database &#128190;"> <i class="bx bx-save"></i>Generate</button>
     </div>

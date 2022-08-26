@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="right-topbar ml-auto">
+    <div class="ml-auto right-topbar">
       <ul class="navbar-nav">
         <li class="nav-item search-btn-mobile">
           <a class="nav-link position-relative"
@@ -37,8 +37,8 @@
             data-toggle="dropdown">
             <div class="media user-box align-items-center">
               <div class="media-body user-info">
-                <p class="user-name mb-0">Zuyel Rana</p>
-                <p class="designattion mb-0">Available</p>
+                <p class="mb-0 user-name">{{ Auth()->user()->name }}</p>
+                <p class="mb-0 designattion">Available</p>
               </div>
               <img src="{{ asset('/') }}images/zuyel.jpg"
                 class="user-img"
@@ -51,7 +51,7 @@
                 href="{{ route('user.profie') }}"><i class="bx bx-user"></i><span>Profile</span></a>
             @endauth
 
-            <div class="dropdown-divider mb-0"></div>
+            <div class="mb-0 dropdown-divider"></div>
             <a class="dropdown-item"
               href="{{ route('logout') }}"
               onclick="event.preventDefault();

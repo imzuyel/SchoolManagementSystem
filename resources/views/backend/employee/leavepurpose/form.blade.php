@@ -1,6 +1,6 @@
 @extends('backend.layouts')
 @section('title')
-  {{ isset($leavePurpose->id) ? 'Update leavePurpose' : 'Create leavePurpose' }}
+  {{ isset($leavePurpose->id) ? 'Update Leave Purpose' : 'Add Leave Purpose' }}
 @endsection
 @section('content')
   <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
@@ -11,7 +11,7 @@
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
-            aria-current="page">{{ isset($leavePurpose->id) ? 'Update leavePurpose' : 'Create leavePurpose' }}</li>
+            aria-current="page">{{ isset($leavePurpose->id) ? 'Update leavePurpose' : 'Add Leave Purpose' }}</li>
         </ol>
       </nav>
     </div>
@@ -29,14 +29,14 @@
           <div class="mb-4 card-header border-bottom-0">
             <div class="d-flex align-items-center">
               <div>
-                <h5 class="mb-lg-0">{{ isset($leavePurpose->id) ? 'Update leavePurpose' : 'Create leavePurpose' }}</h5>
+                <h5 class="mb-lg-0">{{ isset($leavePurpose->id) ? 'Update leavePurpose' : 'Add Leave Purpose' }}</h5>
               </div>
               <div class="ml-auto">
 
                 <a class="m-1 btn btn-primary"
                   href="{{ route('employee.leavepurpose.index') }}"
                   data-toggle="tooltip"
-                  title="Back to all leavePurposes &#9194;"><i class="bx bx-rewind"></i>Back</a>
+                  title="Manage Leave Purposes &#9194;"><i class="bx bx-rewind"></i></a>
               </div>
             </div>
           </div>

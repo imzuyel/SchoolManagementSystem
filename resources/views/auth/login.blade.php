@@ -123,11 +123,7 @@
                             Me</label>
                         </div>
                       </div>
-                      @if (Route::has('password.request'))
-                        <div class="text-right form-group col"> <a href="{{ route('password.request') }}"><i
-                              class='mr-2 bx bxs-key'></i>Forget Password?</a>
-                        </div>
-                      @endif
+
                     </div>
                     <div class="mt-3 btn-group w-100">
                       <button type="submit"
@@ -139,9 +135,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <p class="mb-0">Do not have an account? <a href="{{ route('register') }}">Sign
-                        up</a>
-                    </p>
+
                   </div>
                 </div>
               </div>

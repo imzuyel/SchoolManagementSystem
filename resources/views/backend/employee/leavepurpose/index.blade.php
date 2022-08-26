@@ -21,14 +21,14 @@
     <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
-          <h5>Manage leavepurpose</h5>
+          <h5>Manage Leave Purpose</h5>
         </div>
         <div class="ml-auto">
 
           <a class="px-3 btn btn-primary"
             href="{{ route('employee.leavepurpose.create') }}"
             data-toggle="tooltip"
-            title="Add new leavepurpose &#9989"><i class="mr-1 bx bx-plus"></i>Add</a>
+            title="Add  Leave Purpose &#9989"><i class="mr-1 bx bx-plus"></i></a>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>leavepurpose</th>
+                <th>Leave Purpose</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>

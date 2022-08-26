@@ -10,7 +10,7 @@ class ShiftController extends Controller
 {
     public function index()
     {
-        $data['shifts'] = Shift::latest()->get();
+        $data['shifts'] = Shift::all();
         return view('backend.setup.shift.index', $data);
     }
 

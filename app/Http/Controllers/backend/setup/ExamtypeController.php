@@ -11,7 +11,7 @@ class ExamtypeController extends Controller
 
     public function index()
     {
-        $data['examtypes'] = Examtype::latest()->get();
+        $data['examtypes'] = Examtype::all();
         return view('backend.setup.examtype.index', $data);
     }
 

@@ -57,10 +57,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::resource('/group', GroupController::class)->except('show');
         Route::resource('/shift', ShiftController::class)->except('show');
         Route::resource('/feecategory', FeecategoryController::class)->except('show');
-        Route::resource('/feeamount', FeeamountController::class)->except('show');
+        Route::resource('/feeamount', FeeamountController::class);
         Route::resource('/examtype', ExamtypeController::class)->except('show');
         Route::resource('/subject', SubjectController::class)->except('show');
-        Route::resource('/assignsubject', AssignsubjectController::class)->except('show');
+        Route::resource('/assignsubject', AssignsubjectController::class);
         Route::resource('/designation', DesignationController::class)->except('show');
     });
 
@@ -102,7 +102,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::resource('/attendance', EmployeeattendanceController::class);
 
         // Employee Pay Salary
-        Route::resource('/paysalary', EmployeePaySalaryController::class);
+        Route::resource('/paysalary', EmployeePaySalaryController::class)->only('index');
         Route::post('/monthly/salary/pay', [EmployeePaySalaryController::class, 'getEmployee']);
         Route::get('/monthly/salary/payslip/{employee_id}', [EmployeePaySalaryController::class, 'MonthlySalaryPayslip'])->name('monthly.salary.payslip');
     });
