@@ -105,11 +105,6 @@ class AssingstudentController extends Controller
         return to_route('student.assingstudent.index');
     }
 
-    public function show(Assingstudent $assingstudent)
-    {
-        //
-    }
-
 
     public function edit($id)
     {

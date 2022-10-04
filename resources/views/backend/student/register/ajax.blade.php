@@ -1,6 +1,6 @@
     @if (count($students) > 0)
       <table id="example"
-        class="table table-striped table-bordered text-center table-hover">
+        class="table text-center table-striped table-bordered table-hover">
         <thead>
           <tr>
             <th>#</th>
@@ -50,7 +50,7 @@
                 </form>
               </td>
               <td>
-                <div class="media align-items-center mt-3 ">
+                <div class="mt-3 media align-items-center ">
                   <img
                     @if (file_exists($student->student->profile_photo_path)) src="/{{ $student->student->profile_photo_path }}"
                 @else
@@ -62,12 +62,12 @@
                   <div class="media-body"
                     style="flex: 0.5;">
 
-                    <p class="font-weight-bold mb-0 ml-2">{{ $student->student->name }}</p>
+                    <p class="mb-0 ml-2 font-weight-bold">{{ $student->student->name }}</p>
                   </div>
                 </div>
               </td>
               <td>{{ $student->student->id_no }}</td>
-              <td>{{ $student->student->id_no }}</td>
+              <td>{{ $student->roll }}</td>
               <td>{{ $student->year->name }}</td>
               <td>{{ $student->class->name }}</td>
               <td>{{ $student->shift->name }}</td>

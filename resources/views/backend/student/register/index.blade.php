@@ -4,11 +4,11 @@
 @endsection
 
 @section('content')
-  <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
-    <div class="breadcrumb-title pr-3">Dashboard</div>
+  <div class="mb-3 page-breadcrumb d-none d-md-flex align-items-center">
+    <div class="pr-3 breadcrumb-title">Dashboard</div>
     <div class="pl-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0 p-0">
+        <ol class="p-0 mb-0 breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class='bx bx-home-alt'></i></a>
           </li>
           <li class="breadcrumb-item active"
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="card border-lg-top-primary radius-15">
-    <div class="card-header border-bottom-0 mb-4">
+    <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
           <h5>Search student</h5>
@@ -26,8 +26,6 @@
       </div>
     </div>
     <div class="card-body">
-
-
       <div class="form-body">
         <div class="row d-flex justify-content-between align-items-center">
           <div class="col-md-4">
@@ -68,7 +66,7 @@
               @enderror
             </div>
           </div>
-          <div class="col-md-4 pt-3 ">
+          <div class="pt-3 col-md-4 ">
 
             <a class="btn btn-success searchStudent"
               href="javascript:;">Search</a>
@@ -78,7 +76,7 @@
     </div>
   </div>
   <div class="card radius-15">
-    <div class="card-header border-bottom-0 mb-4">
+    <div class="mb-4 card-header border-bottom-0">
       <div class="d-flex align-items-center">
         <div>
           @if (isset($yearname))
@@ -89,10 +87,10 @@
 
         </div>
         <div class="ml-auto">
-          <a class="btn btn-primary px-3"
+          <a class="px-3 btn btn-primary"
             href="{{ route('student.assingstudent.create') }}"
             data-toggle="tooltip"
-            title="Add new student &#9989"><i class="bx bx-plus mr-1"></i></a>
+            title="Add new student &#9989"><i class="mr-1 bx bx-plus"></i></a>
         </div>
       </div>
     </div>

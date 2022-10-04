@@ -1,9 +1,8 @@
 <?php
 
-
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\mark\GradeController;
 use App\Http\Controllers\backend\setup\YearController;
 use App\Http\Controllers\backend\setup\GroupController;
@@ -27,12 +26,11 @@ use App\Http\Controllers\backend\employee\LeavePruposeController;
 use App\Http\Controllers\backend\student\AssingstudentController;
 use App\Http\Controllers\backend\employee\EmployeeLeaveController;
 use App\Http\Controllers\backend\account\AccountEmployeeController;
-use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\employee\EmployeeSalaryController;
 use App\Http\Controllers\backend\student\RegistrationfeeController;
 use App\Http\Controllers\backend\employee\EmployeePaySalaryController;
 use App\Http\Controllers\backend\employee\EmployeeattendanceController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 
 Route::get('/', function () {
@@ -41,9 +39,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'AdminCheck::class'])->group(function () {
 
-
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 
     // User
     Route::resource('/user', UserController::class);
@@ -67,9 +63,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
         Route::resource('/assingstudent', AssingstudentController::class);
         Route::post('/assing/search', [AssingstudentController::class, 'search'])->name('assingstudent.search');
+
         // Promotion
         Route::get('/promotion/{id}', [AssingstudentController::class, 'promotion'])->name('assingstudent.promotion');
         Route::post('/promotion/new/{id}', [AssingstudentController::class, 'promotionNew'])->name('assingstudent.promotionNew');
+
         // Assing student pdf
         Route::get('/pdf/{id}', [AssingstudentController::class, 'pdf'])->name('assingstudent.pdf');
 

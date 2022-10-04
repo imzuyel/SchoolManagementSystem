@@ -61,11 +61,11 @@
                       data-toggle="tooltip"
                       title="Edit &#128221"><i class="fadeIn animated bx bx-edit"></i>
                     </a>
-                    <a class="btn btn-sm btn-success"
+                    <a class="btn btn-sm btn-facebook"
                       href="{{ route('employee.register.show', $employee->id) }}"
                       data-toggle="tooltip"
                       target="_blank"
-                      title="Details &#128190"><i class="fadeIn animated bx bxs-bullseye"></i>
+                      title="Details &#128190"><i class="fadeIn animated bx bx-show-alt"></i>
                     </a>
                     <form action="{{ route('employee.register.destroy', $employee->id) }}"
                       style="display: inline-block"

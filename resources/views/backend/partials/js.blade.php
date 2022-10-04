@@ -125,7 +125,7 @@
       //Apppend mark
       $(".markSearch").click(function() {
         var year_id = $("#year_id").val();
-        var class_id = $("#class_id").val();
+        var class_id = $("#class_id_1").val();
         var assignsubject_id = $("#assignsubject_id").val();
         var examtype_id = $("#examtype_id").val();
         $.ajax({
@@ -154,7 +154,7 @@
       //Apppend mark
       $(".markEdit").click(function() {
         var year_id = $("#year_id").val();
-        var class_id = $("#class_id").val();
+        var class_id = $("#class_id_1").val();
         var assignsubject_id = $("#assignsubject_id").val();
         var examtype_id = $("#examtype_id").val();
         $.ajax({
@@ -293,7 +293,7 @@
       });
 
 
-      $('#class_id').on('change', function() {
+      $('#class_id_1').on('change', function() {
         var class_id = $(this).val();
         $.ajax({
           type: "POST",

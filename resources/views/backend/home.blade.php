@@ -88,15 +88,15 @@
     <div class="col-12 col-lg-4 d-flex">
       <div class="card radius-15 w-100">
         <div class="card-body">
-          <div class="card radius-15 border shadow-none">
+          <div class="border shadow-none card radius-15">
             <div class="card-body">
               <div class="d-flex align-items-center">
                 <h5 class="mb-0">Our Employeeis</h5>
-                <p class="mb-0 ms-auto"><i class="bx bx-dots-horizontal-rounded float-right font-24"></i>
+                <p class="mb-0 ms-auto"><i class="float-right bx bx-dots-horizontal-rounded font-24"></i>
                 </p>
               </div>
               @foreach ($employess as $employee)
-                <div class="d-flex align-items-center mt-3 gap-3">
+                <div class="gap-3 mt-3 d-flex align-items-center">
                   <img
                     @if (file_exists($employee->profile_photo_path)) src="/{{ $employee->profile_photo_path }}"
                    @else
@@ -106,7 +106,7 @@
                     width="45"
                     height="45">
                   <div class="flex-grow-2">
-                    <p class="font-weight-bold mb-0 ml-3">{{ $employee->name }}</p>
+                    <p class="mb-0 ml-3 font-weight-bold">{{ $employee->name }}</p>
                   </div>
 
                 </div>
@@ -123,7 +123,7 @@
       </div>
 
     </div>
-    <div class="col-12 col-lg-8 mx-auto">
+    <div class="mx-auto col-12 col-lg-8">
       <div class="card radius-15">
         <div class="card-body">
           <div class="card-title">
@@ -172,7 +172,7 @@
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div class="media-body">
-              <h4 class="mb-0 font-weight-bold text-youtube">{{ $shift }}</h4>
+              <h4 class="mb-0 font-weight-bold text-primary-blue">{{ $shift }}</h4>
               <p class="mb-0">Shifts</p>
             </div>
             <div class="font-40 ms-auto"><i class="bx bx-user-pin text-primary-blue"></i>
@@ -184,10 +184,10 @@
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div class="media-body">
-              <h4 class="mb-0 font-weight-bold text-linkedin">{{ $examtype }}</h4>
+              <h4 class="mb-0 text-blue-600 font-weight-bold">{{ $examtype }}</h4>
               <p class="mb-0">Taken Exam</p>
             </div>
-            <div class="font-40 ms-auto"><i class="bx bx-book-heart text-linkedin"></i>
+            <div class="font-40 ms-auto"><i class="text-blue-600 bx bx-book-heart"></i>
             </div>
           </div>
         </div>

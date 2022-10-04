@@ -54,7 +54,7 @@
               <label class="col-form-label">Class</label>
               <select class="single-select @error('class_id') is-invalid @enderror"
                 name="class_id"
-                id="class_id">
+                id="class_id_1">
                 @forelse ($classes as $class)
                   <option value="{{ $class->id }}">{{ $class->name }}</option>
                 @empty
